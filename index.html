@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DEVILS WILL RISE</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;background:#080808;color:#ff3333;
+  font-family:Tahoma,Arial,sans-serif;
+}
+header{
+  padding:25px 12px;text-align:center;
+  border-bottom:1px solid #ff2222;
+  background:#100000;
+}
+h1{font-size:25px;text-shadow:0 0 15px red}
+header p{color:#bbb;font-size:13px}
+.container{max-width:600px;margin:20px auto;padding:12px}
+.card{
+  background:#111;padding:18px;margin-bottom:16px;
+  border:1px solid #6d1111;border-radius:12px;
+  box-shadow:0 0 12px #240000;
+}
+h2{font-size:18px}
+button{
+  width:100%;padding:13px;margin-top:10px;
+  background:#a90000;color:white;border:1px solid red;
+  border-radius:7px;font-size:16px;cursor:pointer;
+}
+button:active{background:#ff2222}
+input{
+  width:100%;padding:12px;margin-top:10px;
+  background:#080808;color:white;border:1px solid #772222;
+  border-radius:7px;font-size:16px;
+}
+.status{color:#00ff88}
+.muted{color:#aaa;font-size:13px;line-height:1.8}
+#output{
+  overflow-wrap:anywhere;color:#00ff88;
+  padding:10px;background:#050505;border-radius:6px;
+}
+footer{text-align:center;padding:20px;color:#777;font-size:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>☠ DEVILS WILL RISE ☠</h1>
+  <p>CYBER SECURITY CONTROL PANEL</p>
+  <p>Developer: Abdo Saad</p>
+</header>
+
+<main class="container">
+
+  <section class="card">
+    <h2>📡 إنشاء جلسة اتصال</h2>
+    <p class="muted">
+      أنشئ رمزًا تجريبيًا لجلسة اتصال. هذا الإصدار لا يتصل بأجهزة أخرى.
+    </p>
+    <button onclick="createSession()">إنشاء رمز جلسة</button>
+    <div id="output">في انتظار إنشاء الجلسة...</div>
+  </section>
+
+  <section class="card">
+    <h2>🔗 الانضمام إلى جلسة</h2>
+    <label for="sessionCode">أدخل رمز الجلسة:</label>
+    <input id="sessionCode" placeholder="اكتب رمز الجلسة هنا">
+    <button onclick="joinSession()">التحقق من الرمز</button>
+    <p id="joinStatus" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>📱 معلومات المتصفح</h2>
+    <p>حالة الصفحة: <span class="status">نشطة</span></p>
+    <p id="deviceInfo" class="muted"></p>
+  </section>
+
+  <section class="card">
+    <h2>🔐 الأمان والخصوصية</h2>
+    <p class="muted">
+      لا يرسل هذا الموقع ملفات أو صورًا أو بيانات إلى أي خادم.
+      لا توجد جلسات اتصال حقيقية في هذه النسخة.
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  DEVILS WILL RISE © 2026<br>
+  Developed by Abdo Saad
+</footer>
+
+<script>
+let currentCode = "";
+
+function createSession(){
+  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+  const random = new Uint32Array(6);
+  crypto.getRandomValues(random);
+
+  currentCode = Array.from(random)
+    .map(n => chars[n % chars.length])
+    .join("");
+
+  document.getElementById("output").textContent =
+    "رمز الجلسة التجريبية: " + currentCode;
+}
+
+function joinSession(){
+  const entered = document.getElementById("sessionCode")
+    .value.trim().toUpperCase();
+
+  const status = document.getElementById("joinStatus");
+
+  if(!entered){
+    status.textContent = "اكتب رمز الجلسة أولًا.";
+    return;
+  }
+
+  if(entered === currentCode && currentCode){
+    status.textContent =
+      "تم التحقق محليًا. هذه ليست جلسة اتصال حقيقية.";
+  }else{
+    status.textContent =
+      "الرمز غير موجود في هذه الصفحة. تذكّر أن الاتصال غير مفعّل.";
+  }
+}
+
+document.getElementById("deviceInfo").textContent =
+  "المتصفح: " + navigator.userAgent;
+</script>
+
+</body>
+  </html>
