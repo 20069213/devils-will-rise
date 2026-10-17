@@ -1,136 +1,338 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DEVILS WILL RISE</title>
-<style>
-*{box-sizing:border-box}
-body{
-  margin:0;background:#080808;color:#ff3333;
-  font-family:Tahoma,Arial,sans-serif;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080000">
+<title>ABDO SAAD | HACKER TERMINAL</title><style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-header{
-  padding:25px 12px;text-align:center;
-  border-bottom:1px solid #ff2222;
-  background:#100000;
-}
-h1{font-size:25px;text-shadow:0 0 15px red}
-header p{color:#bbb;font-size:13px}
-.container{max-width:600px;margin:20px auto;padding:12px}
-.card{
-  background:#111;padding:18px;margin-bottom:16px;
-  border:1px solid #6d1111;border-radius:12px;
-  box-shadow:0 0 12px #240000;
-}
-h2{font-size:18px}
-button{
-  width:100%;padding:13px;margin-top:10px;
-  background:#a90000;color:white;border:1px solid red;
-  border-radius:7px;font-size:16px;cursor:pointer;
-}
-button:active{background:#ff2222}
-input{
-  width:100%;padding:12px;margin-top:10px;
-  background:#080808;color:white;border:1px solid #772222;
-  border-radius:7px;font-size:16px;
-}
-.status{color:#00ff88}
-.muted{color:#aaa;font-size:13px;line-height:1.8}
-#output{
-  overflow-wrap:anywhere;color:#00ff88;
-  padding:10px;background:#050505;border-radius:6px;
-}
-footer{text-align:center;padding:20px;color:#777;font-size:12px}
-</style>
-</head>
-<body>
 
-<header>
-  <h1>☠ DEVILS WILL RISE ☠</h1>
-  <p>CYBER SECURITY CONTROL PANEL</p>
-  <p>Developer: Abdo Saad</p>
-</header>
+body {
+    background: #050505;
+    color: white;
+    font-family: Tahoma, Arial, sans-serif;
+    min-height: 100vh;
+}
 
-<main class="container">
+header {
+    background: #080808;
+    border-bottom: 2px solid #ff1028;
+    padding: 18px 12px;
+    text-align: center;
+    box-shadow: 0 0 20px #ff001533;
+}
 
-  <section class="card">
-    <h2>📡 إنشاء جلسة اتصال</h2>
-    <p class="muted">
-      أنشئ رمزًا تجريبيًا لجلسة اتصال. هذا الإصدار لا يتصل بأجهزة أخرى.
+.logo {
+    font-size: 27px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #ff1028;
+}
+
+.subtitle {
+    color: #aaa;
+    font-size: 11px;
+    letter-spacing: 5px;
+    margin-top: 6px;
+}
+
+.status {
+    color: #00ff91;
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+main {
+    max-width: 1100px;
+    margin: auto;
+    padding: 16px;
+}
+
+.hero {
+    border: 1px solid #ff1028;
+    background: linear-gradient(135deg, #190306, #050505 65%);
+    border-radius: 12px;
+    padding: 24px 15px;
+    text-align: center;
+    box-shadow: 0 0 20px #ff102822;
+}
+
+.label {
+    color: #ff3348;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: clamp(30px, 7vw, 55px);
+    margin: 14px 0;
+    line-height: 1.3;
+}
+
+h1 span {
+    color: #ff1028;
+}
+
+.description {
+    color: #bbb;
+    line-height: 2;
+    font-size: 14px;
+}
+
+.section-title {
+    border-right: 4px solid #ff1028;
+    padding: 8px 12px;
+    margin: 28px 0 16px;
+    font-size: 20px;
+}
+
+.tools {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.card {
+    background: linear-gradient(145deg, #171010, #080808);
+    border: 1px solid #7e1722;
+    border-radius: 10px;
+    padding: 17px 10px;
+    text-align: center;
+    min-height: 125px;
+    transition: .2s;
+}
+
+.card:active {
+    border-color: #ff1028;
+    box-shadow: 0 0 16px #ff102855;
+    transform: scale(.98);
+}
+
+.icon {
+    color: #ff2038;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #aaa;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.terminal {
+    margin-top: 25px;
+    padding: 15px;
+    background: #020604;
+    border: 1px solid #ff1028;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #ff102822;
+}
+
+.terminal-title {
+    color: #ff2038;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.terminal p {
+    color: #00ff91;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+.input-row {
+    display: flex;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+input {
+    flex: 1;
+    min-width: 0;
+    background: #080808;
+    color: white;
+    border: 1px solid #393939;
+    border-radius: 6px;
+    padding: 12px;
+    outline: none;
+}
+
+button {
+    background: #ff1028;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:active {
+    background: #b90019;
+}
+
+#output {
+    color: #ddd;
+    font-size: 13px;
+    line-height: 2;
+    margin-top: 12px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    border-top: 1px solid #67101a;
+    text-align: center;
+    padding: 22px 10px;
+    margin-top: 28px;
+    color: #999;
+    font-size: 12px;
+    line-height: 2;
+}
+
+footer span {
+    color: #ff2038;
+}
+
+@media (max-width: 360px) {
+    .tools {
+        grid-template-columns: 1fr;
+    }
+}
+</style></head><body><header>
+    <div class="logo">ABDO <span>SAAD</span></div>
+    <div class="subtitle">HACKER TERMINAL</div>
+    <div class="status">● SYSTEM ONLINE</div>
+</header><main><section class="hero">
+    <div class="label">CYBER SECURITY // ETHICAL HACKING</div>
+    <h1>ABDO <span>SAAD</span><br>HACKER TERMINAL</h1>
+    <p class="description">
+        منصة تعليمية للأمن السيبراني<br>
+        تعلّم البرمجة واكتشف أساسيات الحماية الرقمية.
     </p>
-    <button onclick="createSession()">إنشاء رمز جلسة</button>
-    <div id="output">في انتظار إنشاء الجلسة...</div>
-  </section>
+</section>
 
-  <section class="card">
-    <h2>🔗 الانضمام إلى جلسة</h2>
-    <label for="sessionCode">أدخل رمز الجلسة:</label>
-    <input id="sessionCode" placeholder="اكتب رمز الجلسة هنا">
-    <button onclick="joinSession()">التحقق من الرمز</button>
-    <p id="joinStatus" class="muted"></p>
-  </section>
+<h2 class="section-title">الأدوات الرئيسية</h2>
 
-  <section class="card">
-    <h2>📱 معلومات المتصفح</h2>
-    <p>حالة الصفحة: <span class="status">نشطة</span></p>
-    <p id="deviceInfo" class="muted"></p>
-  </section>
+<section class="tools">
 
-  <section class="card">
-    <h2>🔐 الأمان والخصوصية</h2>
-    <p class="muted">
-      لا يرسل هذا الموقع ملفات أو صورًا أو بيانات إلى أي خادم.
-      لا توجد جلسات اتصال حقيقية في هذه النسخة.
-    </p>
-  </section>
+    <div class="card" onclick="showInfo('link')">
+        <div class="icon">↗</div>
+        <h3>محلل الروابط</h3>
+        <p>فحص مبدئي للرابط والتنبيه إلى بعض العلامات المشبوهة.</p>
+    </div>
 
-</main>
+    <div class="card" onclick="showInfo('security')">
+        <div class="icon">⬡</div>
+        <h3>أمان المواقع</h3>
+        <p>تعلّم مبادئ حماية المواقع الإلكترونية.</p>
+    </div>
+
+    <div class="card" onclick="showInfo('terminal')">
+        <div class="icon">⌘</div>
+        <h3>الطرفية التفاعلية</h3>
+        <p>جرّب أوامر تعليمية داخل الموقع.</p>
+    </div>
+
+    <div class="card" onclick="showInfo('learn')">
+        <div class="icon">▤</div>
+        <h3>تعلّم الأمن السيبراني</h3>
+        <p>ابدأ تعلّم مفاهيم الأمن الرقمي.</p>
+    </div>
+
+    <div class="card" onclick="showInfo('network')">
+        <div class="icon">⌘</div>
+        <h3>أساسيات الشبكات</h3>
+        <p>تعرّف على عناوين IP ومبادئ الاتصال.</p>
+    </div>
+
+    <div class="card" onclick="showInfo('code')">
+        <div class="icon">&lt;/&gt;</div>
+        <h3>البرمجة</h3>
+        <p>تعرّف على البرمجة وتطوير الويب.</p>
+    </div>
+
+</section>
+
+<section class="terminal" id="terminal">
+    <div class="terminal-title">● TERMINAL — ABDO SAAD</div>
+
+    <p>ABDO@hacker:~$ welcome</p>
+    <p>مرحباً بك في منصة الأمن السيبراني التعليمية.</p>
+    <p>ABDO@hacker:~$ help</p>
+    <p>الأوامر المتاحة: help - about - clear</p>
+
+    <div class="input-row">
+        <input id="command" type="text"
+               placeholder="اكتب أمراً هنا..."
+               autocomplete="off">
+        <button onclick="runCommand()">تنفيذ</button>
+    </div>
+
+    <div id="output" aria-live="polite"></div>
+</section>
 
 <footer>
-  DEVILS WILL RISE © 2026<br>
-  Developed by Abdo Saad
+    <span>ABDO SAAD</span> | HACKER TERMINAL<br>
+    منصة تعليمية للأمن السيبراني<br>
+    © 2026 جميع الحقوق محفوظة
 </footer>
 
-<script>
-let currentCode = "";
+</main><script>
+function showInfo(tool) {
+    const messages = {
+        link: "أدخل الرابط في أداة الفحص المبدئي داخل الطرفية. هذا الفحص لا يضمن سلامة الموقع.",
+        security: "تعلّم تحديث البرامج واستخدام HTTPS وكلمات المرور القوية.",
+        terminal: "جرّب الأوامر التعليمية: help أو about أو clear.",
+        learn: "ابدأ بأساسيات الشبكات والبرمجة ومبادئ حماية الحسابات.",
+        network: "عنوان IP يُستخدم للتعرّف على واجهة اتصال ضمن الشبكة.",
+        code: "يمكنك البدء بتعلّم HTML وCSS وJavaScript."
+    };
 
-function createSession(){
-  const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
-  const random = new Uint32Array(6);
-  crypto.getRandomValues(random);
-
-  currentCode = Array.from(random)
-    .map(n => chars[n % chars.length])
-    .join("");
-
-  document.getElementById("output").textContent =
-    "رمز الجلسة التجريبية: " + currentCode;
+    document.getElementById("output").textContent = messages[tool];
+    document.getElementById("terminal").scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 }
 
-function joinSession(){
-  const entered = document.getElementById("sessionCode")
-    .value.trim().toUpperCase();
+function runCommand() {
+    const input = document.getElementById("command");
+    const output = document.getElementById("output");
+    const command = input.value.trim().toLowerCase();
 
-  const status = document.getElementById("joinStatus");
+    if (command === "help") {
+        output.textContent = "الأوامر المتاحة: help - about - clear";
+    } else if (command === "about") {
+        output.textContent =
+            "ABDO SAAD Hacker Terminal — واجهة تعليمية للأمن السيبراني.";
+    } else if (command === "clear") {
+        output.textContent = "";
+    } else if (command) {
+        output.textContent =
+            "أمر غير معروف. اكتب help لعرض الأوامر المتاحة.";
+    }
 
-  if(!entered){
-    status.textContent = "اكتب رمز الجلسة أولًا.";
-    return;
-  }
-
-  if(entered === currentCode && currentCode){
-    status.textContent =
-      "تم التحقق محليًا. هذه ليست جلسة اتصال حقيقية.";
-  }else{
-    status.textContent =
-      "الرمز غير موجود في هذه الصفحة. تذكّر أن الاتصال غير مفعّل.";
-  }
+    input.value = "";
 }
 
-document.getElementById("deviceInfo").textContent =
-  "المتصفح: " + navigator.userAgent;
-</script>
-
-</body>
-  </html>
+document.getElementById("command").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        runCommand();
+    }
+});
+</script></body>
+</html>
