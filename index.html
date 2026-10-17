@@ -4,207 +4,507 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080000">
-<meta name="description" content="ABDO SAAD Hacker Terminal - منصة تعليمية للأمن السيبراني">
-<title>ABDO SAAD | HACKER TERMINAL</title>
+<meta name="description" content="ABDO SAAD Horror Hacker Terminal - منصة تعليمية للأمن السيبراني">
+<title>ABDO SAAD | HORROR TERMINAL</title>
 
 <style>
+:root {
+    --red: #ff1028;
+    --dark-red: #65000d;
+    --black: #050505;
+    --panel: #10090b;
+    --green: #00ff9c;
+    --white: #f5f5f5;
+    --gray: #aaa;
+}
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 html {
-    background: #050505;
     scroll-behavior: smooth;
+    background: var(--black);
 }
 
 body {
-    background: #050505;
-    color: #fff;
-    font-family: Tahoma, Arial, sans-serif;
+    margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
+    background:
+        radial-gradient(ellipse at 50% 0%, #300008 0%, transparent 55%),
+        var(--black);
+    color: var(--white);
+    font-family: Tahoma, Arial, sans-serif;
 }
 
+/* تأثير خطوط الشاشة */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        transparent 0,
+        transparent 3px,
+        rgba(255, 0, 30, .025) 4px
+    );
+}
+
+/* الإضاءة المتحركة */
+.ambient {
+    position: fixed;
+    inset: -30%;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(
+        circle,
+        rgba(255, 0, 30, .12),
+        transparent 55%
+    );
+    animation: ambientMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes ambientMove {
+    from {
+        transform: translate(-8%, -5%) scale(.8);
+        opacity: .3;
+    }
+    to {
+        transform: translate(8%, 8%) scale(1.3);
+        opacity: 1;
+    }
+}
+
+/* رأس الموقع */
 header {
-    background: #080808;
-    border-bottom: 2px solid #ff1028;
-    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 30;
     text-align: center;
-    box-shadow: 0 0 20px #ff102833;
+    padding: 14px 10px;
+    background: rgba(5, 5, 5, .95);
+    border-bottom: 1px solid var(--red);
+    box-shadow: 0 0 20px #ff102822;
+    backdrop-filter: blur(8px);
 }
 
 .logo {
-    font-size: clamp(23px, 5vw, 35px);
+    font-size: clamp(24px, 6vw, 34px);
     font-weight: 900;
     letter-spacing: 2px;
 }
 
+.logo span,
+.red {
+    color: var(--red);
+}
+
 .logo span {
-    color: #ff1028;
+    animation: glow 1.8s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 4px var(--red); }
+    to {
+        text-shadow:
+            0 0 10px var(--red),
+            0 0 25px #ff001e;
+    }
 }
 
 .subtitle {
-    font-size: 11px;
-    letter-spacing: 5px;
-    color: #aaa;
-    margin-top: 6px;
+    color: var(--gray);
+    font-size: 10px;
+    letter-spacing: 4px;
+    margin-top: 5px;
 }
 
 .status {
-    color: #00ff91;
-    font-size: 12px;
+    color: var(--green);
+    font-size: 11px;
+    margin-top: 9px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 7px;
     margin-top: 12px;
 }
 
-main {
-    max-width: 1200px;
-    margin: auto;
-    padding: 15px;
-}
-
-.design-container {
-    width: 100%;
-    overflow: hidden;
-    border: 1px solid #ff1028;
-    border-radius: 8px;
-    background: #080808;
-    box-shadow: 0 0 25px #ff102833;
-}
-
-.design {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.section-title {
-    border-right: 4px solid #ff1028;
-    padding: 10px 12px;
-    margin: 28px 0 15px;
-    font-size: 21px;
-}
-
-.tools {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
-}
-
-.card {
-    background: linear-gradient(145deg, #19090c, #080808);
-    border: 1px solid #801321;
-    border-radius: 10px;
-    padding: 18px 12px;
-    text-align: center;
+button {
     cursor: pointer;
+    font-family: inherit;
     transition: .2s;
 }
 
-.card:hover {
-    border-color: #ff1028;
-    box-shadow: 0 0 18px #ff102833;
-    transform: translateY(-3px);
+nav button {
+    color: white;
+    background: #160609;
+    border: 1px solid #761020;
+    border-radius: 5px;
+    padding: 9px 12px;
+    font-size: 12px;
+}
+
+button:hover {
+    box-shadow: 0 0 12px #ff102855;
+    border-color: var(--red);
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+/* المحتوى */
+main {
+    width: min(100% - 22px, 1050px);
+    margin: 18px auto;
+}
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 17px;
+    border: 1px solid var(--red);
+    border-radius: 10px;
+    background: linear-gradient(145deg, #230006, #090909 65%);
+    box-shadow: 0 0 25px #ff102822;
+    text-align: center;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid #63101d;
+    border-radius: 6px;
+    margin-bottom: 18px;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 7vw, 46px);
+    margin: 12px 0;
+}
+
+.hero p {
+    color: #ccc;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.btn {
+    background: var(--red);
+    color: white;
+    border: 1px solid var(--red);
+    border-radius: 5px;
+    padding: 11px 15px;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+.btn.secondary {
+    background: #18090c;
+    border-color: #761020;
+}
+
+.section-title {
+    margin: 27px 0 14px;
+    padding: 9px 12px;
+    border-right: 4px solid var(--red);
+    font-size: 20px;
+    text-shadow: 0 0 9px #ff102855;
+}
+
+/* البطاقات */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(145deg, #1b080c, #090909);
+    border: 1px solid #64101d;
+    border-radius: 8px;
+    padding: 17px 10px;
+    text-align: center;
+    animation: cardFloat 5s ease-in-out infinite;
+}
+
+.card:nth-child(even) {
+    animation-delay: -2.5s;
+}
+
+@keyframes cardFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
 }
 
 .icon {
-    color: #ff2038;
+    color: var(--red);
     font-size: 30px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 6px #ff102855);
 }
 
 .card h3 {
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 14px;
+    margin: 7px 0;
 }
 
 .card p {
-    color: #bbb;
+    color: var(--gray);
     font-size: 12px;
     line-height: 1.8;
 }
 
-.terminal {
-    margin-top: 25px;
+/* الصناديق */
+.panel {
     padding: 15px;
-    background: #020604;
-    border: 1px solid #ff1028;
-    border-radius: 10px;
-    box-shadow: 0 0 18px #ff102822;
+    margin-top: 12px;
+    background: var(--panel);
+    border: 1px solid #67101d;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ff102811;
+}
+
+.small {
+    color: var(--gray);
+    font-size: 12px;
+    line-height: 1.9;
+}
+
+input,
+select {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 10px 0;
+    padding: 12px;
+    color: white;
+    background: #080808;
+    border: 1px solid #57202a;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus,
+select:focus {
+    outline: 1px solid var(--red);
+}
+
+.output {
+    color: var(--green);
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+    line-height: 1.9;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.terminal {
+    background: #020704;
+    border-color: #14553a;
 }
 
 .terminal-title {
-    color: #ff2038;
+    color: var(--green);
+    margin-bottom: 10px;
     font-weight: bold;
-    margin-bottom: 15px;
 }
 
-.terminal p {
-    color: #00ff91;
-    font-family: monospace;
-    font-size: 13px;
-    line-height: 2;
-    overflow-wrap: anywhere;
-}
-
-.input-row {
-    display: flex;
-    gap: 8px;
-    margin-top: 15px;
-}
-
-input {
-    flex: 1;
-    min-width: 0;
-    background: #080808;
-    color: white;
-    border: 1px solid #393939;
-    border-radius: 6px;
-    padding: 12px;
-    outline: none;
-}
-
-button {
-    background: #ff1028;
-    color: white;
-    border: none;
-    padding: 11px 15px;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-#output {
+.lesson {
     color: #ddd;
-    font-size: 13px;
     line-height: 2;
-    margin-top: 12px;
-    overflow-wrap: anywhere;
+}
+
+.lesson h3 {
+    color: var(--red);
+    margin-bottom: 7px;
+}
+
+.lesson-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #3e1b22;
+}
+
+.question {
+    padding: 13px 0;
+    border-bottom: 1px solid #482029;
+    line-height: 1.9;
+}
+
+.question label {
+    display: block;
+    margin: 6px 0;
+    color: #ddd;
+}
+
+.question input {
+    display: inline-block;
+    width: auto;
+    margin: 0 0 0 5px;
+}
+
+.hidden {
+    display: none !important;
 }
 
 footer {
-    border-top: 1px solid #67101a;
     text-align: center;
-    padding: 22px 10px;
     margin-top: 30px;
+    padding: 22px 12px;
     color: #999;
     font-size: 12px;
     line-height: 2;
+    border-top: 1px solid #60101c;
 }
 
-footer span {
-    color: #ff2038;
+/* العين المرعبة */
+.horror-eye {
+    position: fixed;
+    left: 10px;
+    top: 28%;
+    z-index: 15;
+    font-size: 34px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px red);
+    animation: eyeAppear 8s infinite;
 }
 
-@media (min-width: 700px) {
-    .tools {
+@keyframes eyeAppear {
+    0%, 15%, 35%, 100% {
+        opacity: 0;
+        transform: scale(.3) rotate(-20deg);
+    }
+    20%, 30% {
+        opacity: .95;
+        transform: scale(1.1);
+    }
+}
+
+/* الجمجمة الطائرة */
+.horror-skull {
+    position: fixed;
+    right: 10px;
+    top: 38%;
+    z-index: 15;
+    font-size: 32px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 10px red);
+    animation: skullMove 9s ease-in-out infinite;
+}
+
+@keyframes skullMove {
+    0% {
+        transform: translateY(75px) rotate(-15deg);
+        opacity: 0;
+    }
+    15% { opacity: .85; }
+    50% {
+        transform: translateY(-75px) rotate(15deg);
+        opacity: 1;
+    }
+    85% { opacity: .7; }
+    100% {
+        transform: translateY(75px) rotate(-15deg);
+        opacity: 0;
+    }
+}
+
+/* العناكب */
+.spider {
+    position: fixed;
+    top: -40px;
+    z-index: 14;
+    font-size: 24px;
+    pointer-events: none;
+    filter: drop-shadow(0 0 7px red);
+    animation: spiderFall 10s linear infinite;
+}
+
+.spider.one {
+    left: 7%;
+    animation-delay: -3s;
+}
+
+.spider.two {
+    left: 90%;
+    animation-delay: -7s;
+}
+
+@keyframes spiderFall {
+    0% {
+        transform: translateY(-40px) rotate(0);
+        opacity: 0;
+    }
+    12% { opacity: .9; }
+    90% { opacity: .9; }
+    100% {
+        transform: translateY(110vh) rotate(240deg);
+        opacity: 0;
+    }
+}
+
+/* القطرات */
+.red-particle {
+    position: fixed;
+    top: -20px;
+    width: 3px;
+    height: 12px;
+    border-radius: 5px;
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red);
+    z-index: 12;
+    pointer-events: none;
+    animation: particleFall linear infinite;
+}
+
+@keyframes particleFall {
+    to {
+        transform: translateY(110vh);
+        opacity: 0;
+    }
+}
+
+/* تشويش */
+.glitch-active {
+    animation: glitch .15s linear 2;
+}
+
+@keyframes glitch {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    75% { transform: translateX(1px); }
+    100% { transform: translateX(0); }
+}
+
+/* تقليل الحركة حسب إعداد الجهاز */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+@media (min-width: 650px) {
+    .grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 }
 
-@media (max-width: 350px) {
-    .tools {
-        grid-template-columns: 1fr;
+@media (max-width: 360px) {
+    nav button {
+        padding: 8px;
     }
 }
 </style>
@@ -212,140 +512,487 @@ footer span {
 
 <body>
 
+<div class="ambient" aria-hidden="true"></div>
+
+<div class="horror-eye" aria-hidden="true">👁️</div>
+<div class="horror-skull" aria-hidden="true">💀</div>
+<div class="spider one" aria-hidden="true">🕷️</div>
+<div class="spider two" aria-hidden="true">🕷️</div>
+
 <header>
     <div class="logo">ABDO <span>SAAD</span></div>
-    <div class="subtitle">HACKER TERMINAL</div>
-    <div class="status">● SYSTEM ONLINE</div>
+    <div class="subtitle">HORROR HACKER TERMINAL</div>
+    <div class="status">● SYSTEM ONLINE — LEARNING MODE</div>
+
+    <nav>
+        <button onclick="go('home')">الرئيسية</button>
+        <button onclick="go('tools')">الأدوات</button>
+        <button onclick="go('terminal-section')">الطرفية</button>
+        <button onclick="go('learn')">الدروس</button>
+        <button onclick="go('quiz')">الاختبار</button>
+    </nav>
 </header>
 
 <main>
 
-    <!-- صورة التصميم الأصلي -->
-    <div class="design-container">
-        <img
-            class="design"
-            src="./design.png"
-            alt="ABDO SAAD Hacker Terminal"
-        >
+<section id="home" class="hero">
+    <img
+        src="./design.png"
+        alt="ABDO SAAD Hacker Terminal"
+        onerror="this.style.display='none'"
+    >
+
+    <div class="red">CYBER SECURITY // ETHICAL LEARNING</div>
+
+    <h1>ABDO <span class="red">SAAD</span></h1>
+
+    <p>
+        مرحباً بك في عالم الأمن السيبراني.<br>
+        تعلّم البرمجة والشبكات وحماية المعلومات
+        من خلال أدوات تعليمية تفاعلية.
+    </p>
+
+    <button class="btn" onclick="go('tools')">ابدأ الآن</button>
+</section>
+
+<h2 id="tools" class="section-title">الأدوات الرئيسية</h2>
+
+<section class="grid">
+
+    <div class="card">
+        <div class="icon">↗</div>
+        <h3>فاحص الروابط</h3>
+        <p>فحص مبدئي لصيغة الرابط وعرض بعض التحذيرات.</p>
+        <button class="btn" onclick="go('link-tool')">فتح</button>
     </div>
 
-    <h2 class="section-title">الأدوات التعليمية</h2>
+    <div class="card">
+        <div class="icon">⌨</div>
+        <h3>الطرفية</h3>
+        <p>أوامر تعليمية تعمل داخل المتصفح.</p>
+        <button class="btn" onclick="go('terminal-section')">فتح</button>
+    </div>
 
-    <section class="tools">
+    <div class="card">
+        <div class="icon">🛡️</div>
+        <h3>الحماية الرقمية</h3>
+        <p>تعلّم حماية حساباتك ومعلوماتك.</p>
+        <button class="btn" onclick="go('learn')">عرض الدروس</button>
+    </div>
 
-        <div class="card" onclick="showInfo('link')">
-            <div class="icon">↗</div>
-            <h3>محلل الروابط</h3>
-            <p>فحص مبدئي لعنوان الرابط بحثًا عن علامات مشبوهة.</p>
+    <div class="card">
+        <div class="icon">🌐</div>
+        <h3>الشبكات</h3>
+        <p>معلومات عن IP وDNS وHTTPS.</p>
+        <button class="btn" onclick="showLesson('network')">فتح الدرس</button>
+    </div>
+
+    <div class="card">
+        <div class="icon">&lt;/&gt;</div>
+        <h3>البرمجة</h3>
+        <p>تعلّم أساسيات تطوير الويب.</p>
+        <button class="btn" onclick="showLesson('coding')">فتح الدرس</button>
+    </div>
+
+    <div class="card">
+        <div class="icon">✓</div>
+        <h3>اختبار المعلومات</h3>
+        <p>اختبر معلوماتك في الأمن والبرمجة.</p>
+        <button class="btn" onclick="go('quiz')">ابدأ الاختبار</button>
+    </div>
+
+</section>
+
+<section id="link-tool">
+    <h2 class="section-title">فاحص الروابط</h2>
+
+    <div class="panel">
+        <p class="small">
+            يفحص شكل الرابط وبعض خصائصه فقط.
+            لا يفتح الرابط ولا يضمن سلامته.
+        </p>
+
+        <input
+            id="urlInput"
+            type="url"
+            placeholder="https://example.com"
+            autocomplete="url"
+        >
+
+        <button class="btn" onclick="checkUrl()">فحص الرابط</button>
+
+        <div id="urlOutput" class="output" aria-live="polite"></div>
+    </div>
+</section>
+
+<section id="terminal-section">
+    <h2 class="section-title">الطرفية التفاعلية</h2>
+
+    <div class="panel terminal">
+        <div class="terminal-title">ABDO@learning:~$</div>
+
+        <p class="small">
+            اكتب help أو about أو date أو tips أو clear.
+            هذه محاكاة تعليمية وليست طرفية أندرويد الحقيقية.
+        </p>
+
+        <input
+            id="commandInput"
+            placeholder="اكتب الأمر هنا..."
+            autocomplete="off"
+        >
+
+        <button class="btn" onclick="runCommand()">تنفيذ</button>
+        <button class="btn secondary" onclick="clearTerminal()">مسح الشاشة</button>
+
+        <div id="terminalOutput" class="output" aria-live="polite"></div>
+    </div>
+</section>
+
+<section id="learn">
+    <h2 class="section-title">مركز التعلّم</h2>
+
+    <div class="panel lesson">
+
+        <div class="lesson-item">
+            <h3>🛡️ حماية الحسابات</h3>
+            استخدم كلمة مرور قوية وفريدة، وفعّل التحقق بخطوتين.
+            لا تشارك رموز تسجيل الدخول مع أي شخص.
         </div>
 
-        <div class="card" onclick="showInfo('security')">
-            <div class="icon">⬡</div>
-            <h3>أمان المواقع</h3>
-            <p>تعلّم مبادئ حماية المواقع الإلكترونية.</p>
+        <div class="lesson-item">
+            <h3>🔗 أمن الروابط</h3>
+            افحص اسم النطاق بعناية، ولا تدخل كلمة مرورك
+            في صفحات غير موثوقة.
         </div>
 
-        <div class="card" onclick="showInfo('terminal')">
-            <div class="icon">&gt;_</div>
-            <h3>الطرفية التفاعلية</h3>
-            <p>جرّب الأوامر التعليمية داخل الموقع.</p>
+        <div class="lesson-item">
+            <h3>💻 أساسيات البرمجة</h3>
+            HTML لبناء الصفحة، وCSS لتنسيقها،
+            وJavaScript لإضافة التفاعل.
         </div>
 
-        <div class="card" onclick="showInfo('learn')">
-            <div class="icon">▤</div>
-            <h3>تعلّم الأمن السيبراني</h3>
-            <p>ابدأ تعلّم مفاهيم الحماية الرقمية.</p>
+        <div class="lesson-item">
+            <h3>🌐 أساسيات الشبكات</h3>
+            IP عنوان اتصال، وDNS يساعد في تحويل أسماء النطاقات،
+            وHTTPS يشفّر الاتصال بين المتصفح والموقع.
         </div>
 
-        <div class="card" onclick="showInfo('network')">
-            <div class="icon">⌘</div>
-            <h3>أساسيات الشبكات</h3>
-            <p>تعرّف على الشبكات وعناوين IP.</p>
-        </div>
+    </div>
+</section>
 
-        <div class="card" onclick="showInfo('code')">
-            <div class="icon">&lt;/&gt;</div>
-            <h3>البرمجة</h3>
-            <p>تعلّم HTML وCSS وJavaScript.</p>
-        </div>
+<section id="lessonOutput" class="hidden">
+    <h2 class="section-title">شرح إضافي</h2>
+    <div id="lessonText" class="panel lesson"></div>
+</section>
 
-    </section>
+<section id="quiz">
+    <h2 class="section-title">اختبار المعلومات</h2>
 
-    <section class="terminal" id="terminal">
-        <div class="terminal-title">● TERMINAL — ABDO SAAD</div>
+    <div class="panel">
 
-        <p>ABDO@hacker:~$ welcome</p>
-        <p>مرحبًا بك في منصة الأمن السيبراني التعليمية.</p>
-        <p>ABDO@hacker:~$ help</p>
-        <p>الأوامر المتاحة: help - about - clear</p>
+        <form id="quizForm">
 
-        <div class="input-row">
-            <input
-                id="command"
-                type="text"
-                placeholder="اكتب أمرًا هنا..."
-                autocomplete="off"
-            >
-            <button onclick="runCommand()">تنفيذ</button>
-        </div>
+            <div class="question">
+                <strong>1. ما فائدة HTTPS الأساسية؟</strong>
 
-        <div id="output" aria-live="polite"></div>
-    </section>
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    تسريع الهاتف دائماً
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    تشفير الاتصال بالموقع
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    ضمان موثوقية كل المواقع
+                </label>
+            </div>
+
+            <div class="question">
+                <strong>2. ماذا تفعل مع رابط تسجيل دخول مشبوه؟</strong>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    أدخل كلمة المرور
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    أرسله للجميع
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    أتحقق من المصدر وأتجنب الرابط
+                </label>
+            </div>
+
+            <div class="question">
+                <strong>3. ما وظيفة CSS؟</strong>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    تنسيق مظهر الصفحة
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    اختراق الأجهزة
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    إنشاء الإنترنت وحده
+                </label>
+            </div>
+
+            <button type="submit" class="btn">عرض النتيجة</button>
+
+        </form>
+
+        <div id="quizOutput" class="output" aria-live="polite"></div>
+
+    </div>
+</section>
 
 </main>
 
 <footer>
-    <span>ABDO SAAD</span> | HACKER TERMINAL<br>
-    منصة تعليمية للأمن السيبراني<br>
+    <span class="red">ABDO SAAD</span><br>
+    HORROR HACKER TERMINAL<br>
+    منصة تعليمية للأمن السيبراني والبرمجة<br>
     © 2026 جميع الحقوق محفوظة
 </footer>
 
 <script>
-function showInfo(tool) {
-    const messages = {
-        link: "اكتب عنوان رابط لفحص شكله مبدئيًا. الفحص لا يثبت أن الموقع آمن.",
-        security: "احمِ حساباتك بكلمات مرور قوية، واستخدم التحقق بخطوتين.",
-        terminal: "جرّب الأوامر التعليمية: help أو about أو clear.",
-        learn: "ابدأ بأساسيات الشبكات والبرمجة وأمن المعلومات.",
-        network: "تعرّف على عناوين IP ومبادئ الاتصال بين الأجهزة.",
-        code: "ابدأ بتعلّم HTML وCSS وJavaScript."
-    };
+"use strict";
 
-    document.getElementById("output").textContent = messages[tool];
+function go(id) {
+    const element = document.getElementById(id);
 
-    document.getElementById("terminal").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-    });
+    if (element) {
+        element.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+    }
 }
 
-function runCommand() {
-    const input = document.getElementById("command");
-    const output = document.getElementById("output");
-    const command = input.value.trim().toLowerCase();
+/* فحص مبدئي لصيغة الرابط */
+function checkUrl() {
+    const input = document.getElementById("urlInput");
+    const output = document.getElementById("urlOutput");
+    const value = input.value.trim();
 
-    if (command === "help") {
-        output.textContent =
-            "الأوامر المتاحة: help - about - clear";
-    } else if (command === "about") {
-        output.textContent =
-            "ABDO SAAD Hacker Terminal — واجهة تعليمية للأمن السيبراني.";
-    } else if (command === "clear") {
-        output.textContent = "";
-    } else if (command) {
-        output.textContent =
-            "أمر غير معروف. اكتب help لعرض الأوامر المتاحة.";
+    if (!value) {
+        output.textContent = "اكتب رابطاً أولاً.";
+        return;
     }
 
-    input.value = "";
+    let parsed;
+
+    try {
+        parsed = new URL(value);
+    } catch {
+        output.textContent =
+            "صيغة الرابط غير صحيحة.\nمثال: https://example.com";
+        return;
+    }
+
+    if (!["http:", "https:"].includes(parsed.protocol)) {
+        output.textContent = "نوع البروتوكول غير مدعوم.";
+        return;
+    }
+
+    const warnings = [];
+
+    if (parsed.protocol !== "https:") {
+        warnings.push("الرابط لا يستخدم HTTPS.");
+    }
+
+    if (parsed.username || parsed.password) {
+        warnings.push("الرابط يحتوي على بيانات دخول ضمن العنوان.");
+    }
+
+    if (
+        parsed.hostname.startsWith("xn--") ||
+        parsed.hostname.includes(".xn--")
+    ) {
+        warnings.push("اسم النطاق يحتوي على ترميز دولي يستحق المراجعة.");
+    }
+
+    if (parsed.hostname.split(".").length >= 5) {
+        warnings.push("اسم النطاق يحتوي على مستويات فرعية عديدة.");
+    }
+
+    output.textContent =
+        "اسم المضيف: " + parsed.hostname +
+        "\nالبروتوكول: " + parsed.protocol +
+        "\n\n" +
+        (warnings.length
+            ? "ملاحظات:\n- " + warnings.join("\n- ")
+            : "لم تظهر علامات التحذير البسيطة التي يفحصها النموذج.") +
+        "\n\nهذا الفحص مبدئي ولا يضمن أن الموقع آمن.";
 }
 
-document.getElementById("command").addEventListener("keydown", function(event) {
+/* أوامر الطرفية التعليمية */
+const commandInput = document.getElementById("commandInput");
+
+function runCommand() {
+    const command = commandInput.value.trim().toLowerCase();
+    const output = document.getElementById("terminalOutput");
+
+    const commands = {
+        help:
+            "الأوامر المتاحة:\n" +
+            "help — عرض الأوامر\n" +
+            "about — معلومات المنصة\n" +
+            "date — الوقت المحلي\n" +
+            "tips — نصائح الحماية\n" +
+            "clear — مسح الشاشة",
+
+        about:
+            "ABDO SAAD Horror Hacker Terminal\n" +
+            "منصة تعليمية للبرمجة والأمن السيبراني.",
+
+        tips:
+            "1. استخدم كلمات مرور فريدة.\n" +
+            "2. فعّل التحقق بخطوتين.\n" +
+            "3. تجنب المرفقات المشبوهة.\n" +
+            "4. حدّث برامجك باستمرار.",
+
+        date:
+            "الوقت المحلي:\n" +
+            new Date().toLocaleString()
+    };
+
+    if (command === "clear") {
+        output.textContent = "";
+    } else if (commands[command]) {
+        output.textContent = commands[command];
+    } else if (command) {
+        output.textContent =
+            "أمر غير معروف. اكتب help لعرض الأوامر.";
+    } else {
+        output.textContent = "اكتب أمراً أولاً.";
+    }
+
+    commandInput.value = "";
+}
+
+function clearTerminal() {
+    document.getElementById("terminalOutput").textContent = "";
+    commandInput.value = "";
+}
+
+commandInput.addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         runCommand();
     }
 });
+
+/* دروس إضافية */
+function showLesson(type) {
+    const section = document.getElementById("lessonOutput");
+    const text = document.getElementById("lessonText");
+
+    const lessons = {
+        network:
+            "<h3>أساسيات الشبكات</h3>" +
+            "<p><b>IP:</b> عنوان يُستخدم لتحديد واجهة اتصال بالشبكة.</p>" +
+            "<p><b>DNS:</b> يساعد في تحويل اسم النطاق إلى عنوان IP.</p>" +
+            "<p><b>HTTPS:</b> يشفّر الاتصال بين المتصفح والموقع.</p>",
+
+        coding:
+            "<h3>مقدمة في تطوير الويب</h3>" +
+            "<p><b>HTML:</b> هيكل الصفحة.</p>" +
+            "<p><b>CSS:</b> المظهر والألوان والتخطيط.</p>" +
+            "<p><b>JavaScript:</b> التفاعل والأحداث.</p>"
+    };
+
+    text.innerHTML = lessons[type] || "لا يوجد درس متاح.";
+
+    section.classList.remove("hidden");
+
+    section.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+}
+
+/* تصحيح الاختبار */
+document.getElementById("quizForm").addEventListener(
+    "submit",
+    function(event) {
+        event.preventDefault();
+
+        const answers = {
+            q1: "b",
+            q2: "c",
+            q3: "a"
+        };
+
+        let score = 0;
+
+        for (const [question, correct] of Object.entries(answers)) {
+            const selected = document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+            if (selected && selected.value === correct) {
+                score++;
+            }
+        }
+
+        document.getElementById("quizOutput").textContent =
+            "نتيجتك: " + score + " من 3.\n" +
+            (score === 3
+                ? "ممتاز! كل إجاباتك صحيحة."
+                : "راجع الدروس وحاول مرة أخرى.");
+    }
+);
+
+/* تأثيرات الرعب المتحركة */
+(function() {
+    const reduceMotion =
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (reduceMotion) return;
+
+    /* قطرات متحركة */
+    for (let i = 0; i < 14; i++) {
+        const particle = document.createElement("div");
+
+        particle.className = "red-particle";
+        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.animationDuration =
+            (5 + Math.random() * 8) + "s";
+        particle.style.animationDelay =
+            (-Math.random() * 10) + "s";
+
+        document.body.appendChild(particle);
+    }
+
+    /* تشويش بسيط عند الضغط على الأزرار */
+    document.addEventListener("click", function(event) {
+        if (!event.target.closest("button")) return;
+
+        document.body.classList.remove("glitch-active");
+
+        void document.body.offsetWidth;
+
+        document.body.classList.add("glitch-active");
+
+        setTimeout(function() {
+            document.body.classList.remove("glitch-active");
+        }, 350);
+    });
+})();
 </script>
 
 </body>
-    </html>
+            </html>
