@@ -3,1158 +3,1164 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#09090b">
-<meta name="description" content="ABDO SAAD — منصة تعليمية لتعلم البرمجة والأمن الرقمي بطريقة تفاعلية.">
+<meta name="theme-color" content="#080000">
+<meta name="description" content="ABDO SAAD Horror Hacker Terminal - منصة تعليمية للأمن السيبراني">
 <title>ABDO SAAD | HORROR TERMINAL</title>
 
 <style>
-:root {
-  --bg:#08080b;
-  --panel:#111116;
-  --panel2:#17171f;
-  --red:#ff1744;
-  --red2:#a90025;
-  --text:#f5f5f7;
-  --muted:#a4a4b0;
-  --border:#38303a;
-  --green:#4dffb5;
-  --radius:17px;
+:root{
+--red:#ff1028;
+--black:#050505;
+--panel:#10090b;
+--green:#00ff9c;
+--white:#f5f5f5;
+--gray:#aaa
 }
 
-* { box-sizing:border-box; }
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--black)}
 
-html { scroll-behavior:smooth; }
-
-body {
-  margin:0;
-  background:
-    radial-gradient(ellipse at top, #251018 0%, transparent 48%),
-    var(--bg);
-  color:var(--text);
-  font-family:Tahoma,Arial,sans-serif;
-  line-height:1.8;
-  min-height:100vh;
-  overflow-x:hidden;
+body{
+margin:0;
+min-height:100vh;
+overflow-x:hidden;
+background:radial-gradient(ellipse at 50% 0%,#300008 0%,transparent 55%),var(--black);
+color:var(--white);
+font-family:Tahoma,Arial,sans-serif
 }
 
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  z-index:10;
-  opacity:.12;
-  background:repeating-linear-gradient(
-    to bottom,
-    transparent 0px,
-    transparent 3px,
-    #000 4px
-  );
+body::before{
+content:"";
+position:fixed;
+inset:0;
+z-index:50;
+pointer-events:none;
+background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(255,0,30,.025) 4px)
 }
 
-button,input,textarea { font:inherit; }
-
-button {
-  cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
+.ambient{
+position:fixed;
+inset:-30%;
+z-index:-1;
+pointer-events:none;
+background:radial-gradient(circle,rgba(255,0,30,.12),transparent 55%);
+animation:ambientMove 8s ease-in-out infinite alternate
 }
 
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline:2px solid var(--red);
-  outline-offset:3px;
+@keyframes ambientMove{
+from{transform:translate(-8%,-5%) scale(.8);opacity:.3}
+to{transform:translate(8%,8%) scale(1.3);opacity:1}
 }
 
-a { color:inherit; }
-
-.container {
-  width:min(1120px,92%);
-  margin:auto;
+header{
+position:sticky;
+top:0;
+z-index:30;
+text-align:center;
+padding:14px 10px;
+background:rgba(5,5,5,.95);
+border-bottom:1px solid var(--red);
+box-shadow:0 0 20px #ff102822;
+backdrop-filter:blur(8px)
 }
 
-header {
-  position:sticky;
-  top:0;
-  z-index:20;
-  background:rgba(8,8,11,.94);
-  border-bottom:1px solid #4b1827;
-  backdrop-filter:blur(14px);
+.logo{
+font-size:clamp(24px,6vw,34px);
+font-weight:900;
+letter-spacing:2px
 }
 
-.header-inner {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 0;
-  flex-wrap:wrap;
+.logo span,.red{color:var(--red)}
+
+.logo span{
+animation:glow 1.8s infinite alternate
 }
 
-.brand {
-  font-weight:900;
-  font-size:18px;
-  letter-spacing:1px;
+@keyframes glow{
+from{text-shadow:0 0 4px var(--red)}
+to{text-shadow:0 0 10px var(--red),0 0 25px #ff001e}
 }
 
-.brand span { color:var(--red); }
-
-.header-actions {
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
+.subtitle{
+color:var(--gray);
+font-size:10px;
+letter-spacing:4px;
+margin-top:5px
 }
 
-.btn {
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:9px 13px;
-  color:var(--text);
-  background:#17171d;
-  transition:transform .2s,border-color .2s,background .2s;
+.status{
+color:var(--green);
+font-size:11px;
+margin-top:9px
 }
 
-.btn:hover {
-  border-color:var(--red);
-  transform:translateY(-2px);
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:7px;
+margin-top:12px
 }
 
-.btn-primary {
-  background:linear-gradient(135deg,#ff1744,#97001f);
-  border-color:var(--red);
-  color:white;
-  font-weight:bold;
+button{
+cursor:pointer;
+font-family:inherit;
+transition:.2s
 }
 
-.btn-small {
-  padding:6px 10px;
-  font-size:13px;
+nav button{
+color:white;
+background:#160609;
+border:1px solid #761020;
+border-radius:5px;
+padding:9px 12px;
+font-size:12px
 }
 
-nav {
-  display:flex;
-  gap:7px;
-  padding:0 0 12px;
-  overflow-x:auto;
-  scrollbar-width:thin;
+button:hover{
+box-shadow:0 0 12px #ff102855;
+border-color:var(--red)
 }
 
-nav a {
-  flex-shrink:0;
-  text-decoration:none;
-  color:var(--muted);
-  border:1px solid transparent;
-  padding:5px 12px;
-  border-radius:9px;
-  font-size:13px;
+button:active{transform:scale(.97)}
+
+main{
+width:min(100% - 22px,1050px);
+margin:18px auto
 }
 
-nav a:hover {
-  color:white;
-  background:#201019;
-  border-color:#612033;
+.hero{
+position:relative;
+overflow:hidden;
+padding:17px;
+border:1px solid var(--red);
+border-radius:10px;
+background:linear-gradient(145deg,#230006,#090909 65%);
+box-shadow:0 0 25px #ff102822;
+text-align:center
 }
 
-.hero {
-  padding:36px 0 22px;
-  display:grid;
-  grid-template-columns:1.15fr .85fr;
-  gap:22px;
-  align-items:center;
+.hero img{
+display:block;
+width:100%;
+height:auto;
+border:1px solid #63101d;
+border-radius:6px;
+margin-bottom:18px
 }
 
-.eyebrow {
-  color:var(--red);
-  font-size:12px;
-  font-weight:bold;
-  letter-spacing:2px;
+.hero h1{
+font-size:clamp(28px,7vw,46px);
+margin:12px 0
 }
 
-h1 {
-  font-size:clamp(30px,5vw,52px);
-  line-height:1.25;
-  margin:10px 0;
+.hero p{
+color:#ccc;
+font-size:13px;
+line-height:2
 }
 
-h1 span { color:var(--red); }
-
-.hero p { color:var(--muted); }
-
-.hero-art {
-  min-height:220px;
-  display:grid;
-  place-items:center;
-  border:1px solid #48202c;
-  border-radius:var(--radius);
-  background:linear-gradient(145deg,#1b0b12,#101015);
-  overflow:hidden;
-  position:relative;
+.btn{
+background:var(--red);
+color:white;
+border:1px solid var(--red);
+border-radius:5px;
+padding:11px 15px;
+font-weight:bold;
+margin-top:8px
 }
 
-.hero-art::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  background:radial-gradient(circle,#ff174425,transparent 68%);
+.btn.secondary{
+background:#18090c;
+border-color:#761020
 }
 
-.hero-art img {
-  width:100%;
-  height:240px;
-  object-fit:contain;
-  position:relative;
-  z-index:1;
+.section-title{
+margin:27px 0 14px;
+padding:9px 12px;
+border-right:4px solid var(--red);
+font-size:20px;
+text-shadow:0 0 9px #ff102855
 }
 
-.hero-symbol {
-  font-size:100px;
-  color:var(--red);
-  text-shadow:0 0 35px #ff174455;
+.grid{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:11px
 }
 
-.section { padding:23px 0; }
-
-.section-heading {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:14px;
+.card{
+position:relative;
+overflow:hidden;
+background:linear-gradient(145deg,#1b080c,#090909);
+border:1px solid #64101d;
+border-radius:8px;
+padding:17px 10px;
+text-align:center;
+animation:cardFloat 5s ease-in-out infinite
 }
 
-h2 {
-  margin:0;
-  font-size:23px;
+.card:nth-child(even){animation-delay:-2.5s}
+
+@keyframes cardFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-4px)}
 }
 
-h2 span { color:var(--red); }
-
-.muted { color:var(--muted); }
-
-.small { font-size:12px; }
-
-.dashboard {
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
+.icon{
+color:var(--red);
+font-size:30px;
+margin-bottom:10px;
+filter:drop-shadow(0 0 6px #ff102855)
 }
 
-.stat-card,.card,.panel {
-  background:linear-gradient(145deg,#15151c,#0f0f14);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:17px;
-  min-width:0;
+.card h3{font-size:14px;margin:7px 0}
+
+.card p{
+color:var(--gray);
+font-size:12px;
+line-height:1.8
 }
 
-.stat-card {
-  position:relative;
-  overflow:hidden;
+.panel{
+padding:15px;
+margin-top:12px;
+background:var(--panel);
+border:1px solid #67101d;
+border-radius:8px;
+box-shadow:0 0 15px #ff102811
 }
 
-.stat-card::after {
-  content:"";
-  position:absolute;
-  right:0;
-  top:0;
-  bottom:0;
-  width:3px;
-  background:var(--red);
+.small{
+color:var(--gray);
+font-size:12px;
+line-height:1.9
 }
 
-.stat-label {
-  font-size:12px;
-  color:var(--muted);
+input,select{
+display:block;
+width:100%;
+min-width:0;
+margin:10px 0;
+padding:12px;
+color:white;
+background:#080808;
+border:1px solid #57202a;
+border-radius:5px;
+font-size:14px
 }
 
-.stat-number {
-  font-size:28px;
-  font-weight:900;
-  color:var(--red);
-  margin:5px 0;
+input:focus,select:focus{outline:1px solid var(--red)}
+
+.output{
+color:var(--green);
+white-space:pre-wrap;
+overflow-wrap:anywhere;
+line-height:1.9;
+font-size:13px;
+margin-top:12px
 }
 
-.grid {
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:13px;
+.terminal{
+background:#020704;
+border-color:#14553a
 }
 
-.card {
-  transition:border-color .2s,transform .2s;
+.terminal-title{
+color:var(--green);
+margin-bottom:10px;
+font-weight:bold
 }
 
-.card:hover {
-  border-color:var(--red);
-  transform:translateY(-3px);
+.lesson{
+color:#ddd;
+line-height:2
 }
 
-.card-icon { font-size:29px; }
-
-.card h3 { margin:7px 0; }
-
-.card p {
-  color:var(--muted);
-  font-size:13px;
+.lesson h3{
+color:var(--red);
+margin-bottom:7px
 }
 
-.card button { margin-top:8px; }
-
-.content-section { scroll-margin-top:120px; }
-
-.hidden { display:none !important; }
-
-input,textarea {
-  width:100%;
-  padding:12px;
-  color:white;
-  background:#09090d;
-  border:1px solid var(--border);
-  border-radius:10px;
-  margin:6px 0 12px;
+.lesson-item{
+padding:12px 0;
+border-bottom:1px solid #3e1b22
 }
 
-textarea {
-  min-height:90px;
-  resize:vertical;
+.question{
+padding:13px 0;
+border-bottom:1px solid #482029;
+line-height:1.9
 }
 
-.result {
-  margin-top:12px;
-  padding:12px;
-  border:1px solid var(--border);
-  border-radius:10px;
-  background:#09090d;
-  overflow-wrap:anywhere;
+.question label{
+display:block;
+margin:6px 0;
+color:#ddd
 }
 
-.result.good { border-color:#147d56; }
-.result.warn { border-color:#a66b16; }
-.result.bad { border-color:#a51b39; }
-
-.terminal {
-  background:#050607;
-  border:1px solid #44313a;
-  border-radius:14px;
-  overflow:hidden;
+.question input{
+display:inline-block;
+width:auto;
+margin:0 0 0 5px
 }
 
-.terminal-bar {
-  background:#191219;
-  border-bottom:1px solid #44313a;
-  padding:10px 13px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.hidden{display:none!important}
+
+footer{
+text-align:center;
+margin-top:30px;
+padding:22px 12px;
+color:#999;
+font-size:12px;
+line-height:2;
+border-top:1px solid #60101c
 }
 
-.terminal-dots { color:var(--red); }
-
-.terminal-output {
-  padding:15px;
-  min-height:180px;
-  max-height:300px;
-  overflow-y:auto;
-  color:var(--green);
-  font-family:monospace;
-  white-space:pre-wrap;
-  overflow-wrap:anywhere;
-  font-size:13px;
+.horror-eye{
+position:fixed;
+left:10px;
+top:28%;
+z-index:15;
+font-size:34px;
+pointer-events:none;
+filter:drop-shadow(0 0 10px red);
+animation:eyeAppear 8s infinite
 }
 
-.terminal-input-row {
-  display:flex;
-  gap:8px;
-  padding:10px;
-  border-top:1px solid #30232b;
+@keyframes eyeAppear{
+0%,15%,35%,100%{opacity:0;transform:scale(.3) rotate(-20deg)}
+20%,30%{opacity:.95;transform:scale(1.1)}
 }
 
-.terminal-input-row input { margin:0; }
-
-.lesson {
-  border:1px solid var(--border);
-  border-radius:12px;
-  padding:14px;
-  margin:10px 0;
-  background:#0b0b10;
+.horror-skull{
+position:fixed;
+right:10px;
+top:38%;
+z-index:15;
+font-size:32px;
+pointer-events:none;
+filter:drop-shadow(0 0 10px red);
+animation:skullMove 9s ease-in-out infinite
 }
 
-.lesson h3 { margin-top:0; }
-
-.quiz-option {
-  display:block;
-  width:100%;
-  text-align:right;
-  margin:8px 0;
-  padding:11px;
-  background:#111116;
-  color:white;
-  border:1px solid var(--border);
-  border-radius:10px;
+@keyframes skullMove{
+0%{transform:translateY(75px) rotate(-15deg);opacity:0}
+15%{opacity:.85}
+50%{transform:translateY(-75px) rotate(15deg);opacity:1}
+85%{opacity:.7}
+100%{transform:translateY(75px) rotate(-15deg);opacity:0}
 }
 
-.quiz-option.selected {
-  border-color:var(--red);
-  background:#35101b;
+.spider{
+position:fixed;
+top:-40px;
+z-index:14;
+font-size:24px;
+pointer-events:none;
+filter:drop-shadow(0 0 7px red);
+animation:spiderFall 10s linear infinite
 }
 
-footer {
-  margin-top:35px;
-  padding:25px 0;
-  border-top:1px solid #3b202a;
-  color:var(--muted);
-  text-align:center;
-  font-size:12px;
+.spider.one{left:7%;animation-delay:-3s}
+.spider.two{left:90%;animation-delay:-7s}
+
+@keyframes spiderFall{
+0%{transform:translateY(-40px) rotate(0);opacity:0}
+12%{opacity:.9}
+90%{opacity:.9}
+100%{transform:translateY(110vh) rotate(240deg);opacity:0}
 }
 
-.toast {
-  position:fixed;
-  bottom:20px;
-  left:50%;
-  transform:translateX(-50%);
-  z-index:100;
-  max-width:90%;
-  background:#1a1117;
-  border:1px solid var(--red);
-  padding:10px 16px;
-  border-radius:10px;
-  box-shadow:0 0 25px #ff174422;
+.red-particle{
+position:fixed;
+top:-20px;
+width:3px;
+height:12px;
+border-radius:5px;
+background:var(--red);
+box-shadow:0 0 8px var(--red);
+z-index:12;
+pointer-events:none;
+animation:particleFall linear infinite
 }
 
-.scare-overlay {
-  position:fixed;
-  inset:0;
-  z-index:90;
-  display:none;
-  place-items:center;
-  background:#080000;
-  text-align:center;
+@keyframes particleFall{
+to{transform:translateY(110vh);opacity:0}
 }
 
-.scare-overlay.active { display:grid; }
+.glitch-active{animation:glitch .15s linear 2}
 
-.scare-content {
-  padding:25px;
-  color:var(--red);
-  animation:glitch .25s infinite alternate;
+@keyframes glitch{
+0%{transform:translateX(0)}
+25%{transform:translateX(2px)}
+50%{transform:translateX(-2px)}
+75%{transform:translateX(1px)}
+100%{transform:translateX(0)}
 }
 
-.scare-content div { font-size:clamp(60px,18vw,130px); }
-
-.scare-content p { color:white; }
-
-@keyframes glitch {
-  from { transform:translateX(-2px); }
-  to { transform:translateX(2px); }
+#horrorFlash{
+position:fixed;
+inset:0;
+z-index:80;
+pointer-events:none;
+opacity:0;
+background:radial-gradient(circle at center,rgba(255,0,30,.2),rgba(100,0,10,.72));
+transition:opacity .18s
 }
 
-.progress {
-  height:8px;
-  border-radius:20px;
-  overflow:hidden;
-  background:#29232a;
-  margin:12px 0;
+#horrorFlash.active{opacity:1}
+
+#horrorToast{
+position:fixed;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%) scale(.8);
+width:min(88%,360px);
+z-index:90;
+padding:22px 16px;
+text-align:center;
+background:rgba(7,0,2,.97);
+border:2px solid var(--red);
+border-radius:10px;
+box-shadow:0 0 35px #ff102899;
+color:#fff;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
+transition:opacity .18s,transform .18s,visibility .18s
 }
 
-.progress-bar {
-  height:100%;
-  width:0;
-  background:linear-gradient(90deg,var(--red2),var(--red));
-  transition:width .3s;
+#horrorToast.show{
+opacity:1;
+visibility:visible;
+transform:translate(-50%,-50%) scale(1)
 }
 
-@media(max-width:760px) {
-  .hero { grid-template-columns:1fr; }
-  .hero-art { min-height:150px; }
-  .hero-art img { height:180px; }
-  .dashboard { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+#horrorToast .scare-icon{
+font-size:48px;
+display:block;
+margin-bottom:10px;
+filter:drop-shadow(0 0 12px red)
 }
 
-@media(max-width:430px) {
-  .grid { grid-template-columns:1fr; }
-  .brand { font-size:15px; }
-  .stat-card,.card,.panel { padding:13px; }
-  h2 { font-size:20px; }
+#horrorToast .scare-title{
+color:var(--red);
+font-size:19px;
+font-weight:bold;
+margin-bottom:9px
 }
 
-@media(prefers-reduced-motion:reduce) {
-  *,*::before,*::after {
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    scroll-behavior:auto !important;
-    transition-duration:.01ms !important;
-  }
+#horrorToast .scare-message{
+font-size:14px;
+line-height:1.9;
+color:#eee
+}
+
+#horrorToast .scare-small{
+font-size:10px;
+color:#aaa;
+margin-top:12px
+}
+
+#scareControls{
+position:fixed;
+left:10px;
+bottom:12px;
+z-index:95;
+display:flex;
+gap:7px;
+flex-wrap:wrap
+}
+
+#scareControls button{
+background:#100609;
+color:#fff;
+border:1px solid #8d1023;
+border-radius:6px;
+padding:9px 11px;
+font-size:11px;
+box-shadow:0 0 12px #ff102822
+}
+
+.scare-emoji{
+position:fixed;
+z-index:75;
+pointer-events:none;
+font-size:clamp(35px,10vw,75px);
+filter:drop-shadow(0 0 16px #ff001e);
+animation:scarePop 1.2s ease-out forwards
+}
+
+@keyframes scarePop{
+0%{opacity:0;transform:translate(-50%,-50%) scale(.15) rotate(-25deg)}
+18%{opacity:1;transform:translate(-50%,-50%) scale(1.15) rotate(8deg)}
+35%{transform:translate(-50%,-50%) scale(1) rotate(-5deg)}
+75%{opacity:1}
+100%{opacity:0;transform:translate(-50%,-65%) scale(.8) rotate(15deg)}
+}
+
+@keyframes softGlitch{
+0%,100%{filter:none}
+25%{filter:drop-shadow(2px 0 #ff1028)}
+50%{filter:drop-shadow(-2px 0 #00ff9c)}
+75%{filter:none}
+}
+
+body.scare-glitch main{animation:softGlitch .22s linear 2}
+
+@media(prefers-reduced-motion:reduce){
+*,*::before,*::after{
+animation-duration:.01ms!important;
+animation-iteration-count:1!important;
+scroll-behavior:auto!important;
+transition-duration:.01ms!important
+}
+}
+
+@media(min-width:650px){
+.grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media(max-width:360px){
+nav button{padding:8px}
+#scareControls{left:5px;bottom:5px}
+#scareControls button{padding:8px;font-size:10px}
 }
 </style>
 </head>
 
 <body>
+<div class="ambient" aria-hidden="true"></div>
+<div class="horror-eye" aria-hidden="true">👁️</div>
+<div class="horror-skull" aria-hidden="true">💀</div>
+<div class="spider one" aria-hidden="true">🕷️</div>
+<div class="spider two" aria-hidden="true">🕷️</div>
+
+<div id="horrorFlash" aria-hidden="true"></div>
+
+<div id="horrorToast" role="status" aria-live="polite">
+<span class="scare-icon" id="scareIcon">💀</span>
+<div class="scare-title" id="scareTitle">SYSTEM ALERT</div>
+<div class="scare-message" id="scareMessage">تأثير رعب سينمائي!</div>
+<div class="scare-small">تأثير بصري داخل الموقع فقط</div>
+</div>
+
+<div id="scareControls">
+<button id="scareToggle" type="button">👁️ الرعب: تشغيل</button>
+<button id="soundToggle" type="button" aria-pressed="false">🔇 الصوت: مغلق</button>
+</div>
 
 <header>
-  <div class="container">
-    <div class="header-inner">
-      <div class="brand">ABDO <span>SAAD</span> / TERMINAL</div>
-      <div class="header-actions">
-        <button class="btn btn-small" id="horrorToggle" type="button">الرعب: متوقف</button>
-        <button class="btn btn-small" id="soundToggle" type="button">الصوت: مغلق</button>
-      </div>
-    </div>
+<div class="logo">ABDO <span>SAAD</span></div>
+<div class="subtitle">HORROR HACKER TERMINAL</div>
+<div class="status">● SYSTEM ONLINE — LEARNING MODE</div>
 
-    <nav aria-label="التنقل الرئيسي">
-      <a href="#home">الرئيسية</a>
-      <a href="#dashboard">لوحة التحكم</a>
-      <a href="#tools">الأدوات</a>
-      <a href="#terminal">الطرفية</a>
-      <a href="#lessons">الدروس</a>
-      <a href="#quiz">الاختبار</a>
-      <a href="#about">عن الموقع</a>
-    </nav>
-  </div>
+<nav>
+<button type="button" onclick="go('home')">الرئيسية</button>
+<button type="button" onclick="go('tools')">الأدوات</button>
+<button type="button" onclick="go('terminal-section')">الطرفية</button>
+<button type="button" onclick="go('learn')">الدروس</button>
+<button type="button" onclick="go('quiz')">الاختبار</button>
+</nav>
 </header>
 
-<main class="container">
+<main>
 
-<section class="hero" id="home">
-  <div>
-    <div class="eyebrow">CYBER LEARNING INTERFACE</div>
-    <h1>مرحبًا بك في<br><span>HORROR TERMINAL</span></h1>
-    <p>
-      تعلّم البرمجة والأمن الرقمي من خلال أدوات تعليمية وتجارب تفاعلية.
-      كل ما تراه هنا للتعلم والتجربة داخل المتصفح.
-    </p>
-    <div class="header-actions">
-      <a class="btn btn-primary" href="#tools" style="text-decoration:none">ابدأ الاستكشاف</a>
-      <button class="btn" id="dareButton" type="button">اضغط لو تجرؤ 👁️</button>
-    </div>
-    <p class="small muted">الرعب اختياري، والصوت مغلق افتراضيًا.</p>
-  </div>
+<section id="home" class="hero">
+<img src="./design.png" alt="ABDO SAAD Hacker Terminal" onerror="this.style.display='none'">
 
-  <div class="hero-art">
-    <img src="./design.png" alt="تصميم ABDO SAAD" id="heroImage">
-    <div class="hero-symbol" id="fallbackSymbol" aria-hidden="true">⌘</div>
-  </div>
+<div class="subtitle">WELCOME TO THE DARK SIDE</div>
+
+<h1>HORROR <span class="red">TERMINAL</span></h1>
+
+<p>
+مرحباً بك في عالم ABDO SAAD.
+<br>
+تجربة تفاعلية بطابع الرعب السيبراني، تجمع بين البرمجة
+والتعلم والمفاجآت البصرية.
+</p>
+
+<button class="btn" type="button" onclick="go('tools')">🚀 ابدأ التجربة</button>
+<button class="btn secondary" type="button" onclick="scare()">👁️ اضغط لو تجرؤ</button>
+
+<p class="small">
+تأثيرات الرعب محاكاة بصرية داخل الموقع، وليست اختراقاً حقيقياً.
+</p>
 </section>
 
-<section class="section content-section" id="dashboard">
-  <div class="section-heading">
-    <h2>لوحة <span>التحكم</span></h2>
-    <span class="muted small">إحصائيات محفوظة على هذا الجهاز</span>
-  </div>
+<section id="tools">
+<h2 class="section-title">🧰 الأدوات التعليمية</h2>
 
-  <div class="dashboard">
-    <article class="stat-card">
-      <div class="stat-label">مرات استخدام الأدوات</div>
-      <div class="stat-number" id="statTools">0</div>
-      <div class="small muted">على هذا المتصفح</div>
-    </article>
+<div class="grid">
 
-    <article class="stat-card">
-      <div class="stat-label">محاولات الاختبار</div>
-      <div class="stat-number" id="statAttempts">0</div>
-      <div class="small muted">إجمالي المحاولات</div>
-    </article>
+<article class="card" onclick="go('url-checker')">
+<div class="icon">🔗</div>
+<h3>فاحص الروابط</h3>
+<p>فحص مبدئي لبعض علامات التحذير في الروابط.</p>
+<button class="btn secondary" type="button">فتح الأداة</button>
+</article>
 
-    <article class="stat-card">
-      <div class="stat-label">آخر نتيجة</div>
-      <div class="stat-number" id="statLast">—</div>
-      <div class="small muted">من 100</div>
-    </article>
+<article class="card" onclick="go('terminal-section')">
+<div class="icon">💻</div>
+<h3>الطرفية التعليمية</h3>
+<p>تجربة أوامر بسيطة داخل محاكاة تعليمية.</p>
+<button class="btn secondary" type="button">فتح الطرفية</button>
+</article>
 
-    <article class="stat-card">
-      <div class="stat-label">أفضل نتيجة</div>
-      <div class="stat-number" id="statBest">—</div>
-      <div class="small muted">من 100</div>
-    </article>
-  </div>
+<article class="card" onclick="go('learn')">
+<div class="icon">📚</div>
+<h3>دروس الأمن الرقمي</h3>
+<p>تعلم حماية حساباتك وبياناتك.</p>
+<button class="btn secondary" type="button">عرض الدروس</button>
+</article>
 
-  <div class="panel" style="margin-top:13px">
-    <div class="section-heading">
-      <strong>حالة النظام</strong>
-      <span style="color:var(--green)">● يعمل محليًا</span>
-    </div>
-    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
-    <div class="small muted" id="progressText">ابدأ استخدام الأدوات لتحديث إحصائياتك.</div>
-    <button class="btn btn-small" id="resetStats" type="button">مسح الإحصائيات المحفوظة</button>
-  </div>
+<article class="card" onclick="go('quiz')">
+<div class="icon">🧠</div>
+<h3>اختبار المعلومات</h3>
+<p>اختبر معلوماتك في الأمن الرقمي والبرمجة.</p>
+<button class="btn secondary" type="button">ابدأ الاختبار</button>
+</article>
+
+<article class="card" onclick="showLesson('network')">
+<div class="icon">🌐</div>
+<h3>أساسيات الشبكات</h3>
+<p>تعرف على IP وDNS وHTTPS.</p>
+<button class="btn secondary" type="button">عرض الدرس</button>
+</article>
+
+<article class="card" onclick="showLesson('coding')">
+<div class="icon">⌨️</div>
+<h3>أساسيات البرمجة</h3>
+<p>مقدمة مبسطة في HTML وCSS وJavaScript.</p>
+<button class="btn secondary" type="button">عرض الدرس</button>
+</article>
+
+</div>
 </section>
 
-<section class="section content-section" id="tools">
-  <div class="section-heading">
-    <h2>الأدوات <span>التفاعلية</span></h2>
-    <span class="muted small">اختر أداة للبدء</span>
-  </div>
+<section id="url-checker">
+<h2 class="section-title">🔗 فاحص الروابط</h2>
 
-  <div class="grid">
-    <article class="card">
-      <div class="card-icon">🔎</div>
-      <h3>فاحص الروابط المبدئي</h3>
-      <p>يعرض بعض العلامات التي قد تستدعي الحذر من الرابط.</p>
-      <button class="btn btn-primary" type="button" data-go="linkChecker">فتح الأداة</button>
-    </article>
+<div class="panel" id="url-checker-panel">
+<p class="small">
+أدخل رابطاً لفحص بعض العلامات الظاهرة فيه.
+الفحص لا يضمن أن الموقع آمن.
+</p>
 
-    <article class="card">
-      <div class="card-icon">⌨️</div>
-      <h3>الطرفية التعليمية</h3>
-      <p>جرّب أوامر تعليمية آمنة داخل صفحة الموقع.</p>
-      <button class="btn btn-primary" type="button" data-go="terminal">فتح الطرفية</button>
-    </article>
+<input id="urlInput" type="url" placeholder="https://example.com" dir="ltr" autocomplete="url">
 
-    <article class="card">
-      <div class="card-icon">📚</div>
-      <h3>مكتبة الدروس</h3>
-      <p>تعرّف على الروابط الآمنة والحسابات والبرمجة.</p>
-      <button class="btn btn-primary" type="button" data-go="lessons">عرض الدروس</button>
-    </article>
+<button class="btn" type="button" onclick="checkUrl()">🔍 فحص الرابط</button>
 
-    <article class="card">
-      <div class="card-icon">🧠</div>
-      <h3>اختبار المعرفة</h3>
-      <p>اختبر معلوماتك وشاهد نتيجتك بعد الإجابة.</p>
-      <button class="btn btn-primary" type="button" data-go="quiz">ابدأ الاختبار</button>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">📊</div>
-      <h3>إحصائياتي</h3>
-      <p>تابع استخدام الأدوات والنتائج المحفوظة محليًا.</p>
-      <button class="btn" type="button" data-go="dashboard">عرض الإحصائيات</button>
-    </article>
-
-    <article class="card">
-      <div class="card-icon">👁️</div>
-      <h3>وضع الرعب</h3>
-      <p>تأثير بصري اختياري لا يعمل تلقائيًا عند التنقل.</p>
-      <button class="btn" id="cardDare" type="button">تجربة التأثير</button>
-    </article>
-  </div>
+<div id="urlOutput" class="output" aria-live="polite"></div>
+</div>
 </section>
 
-<section class="section content-section" id="linkChecker">
-  <div class="section-heading">
-    <h2>فاحص <span>الروابط</span></h2>
-  </div>
+<section id="terminal-section">
+<h2 class="section-title">💻 الطرفية التفاعلية</h2>
 
-  <div class="panel">
-    <p class="muted">أدخل رابطًا لتحليل بعض العلامات الظاهرة. هذه الأداة محلية ومبدئية، ولا تتصل بقواعد بيانات تهديدات ولا تستطيع تأكيد أن الرابط آمن.</p>
-    <label for="urlInput">الرابط المراد فحصه</label>
-    <input id="urlInput" type="url" placeholder="https://example.com" autocomplete="url">
-    <button class="btn btn-primary" id="checkUrl" type="button">تحليل الرابط</button>
-    <div id="urlResult" class="result" aria-live="polite">نتيجة التحليل ستظهر هنا.</div>
-  </div>
+<div class="panel terminal">
+<div class="terminal-title">ABDO@learning:~$</div>
+
+<p class="small">
+الأوامر المتاحة: help, about, date, tips, clear.
+هذه محاكاة تعليمية وليست طرفية أندرويد الحقيقية.
+</p>
+
+<input id="commandInput" type="text" placeholder="اكتب الأمر هنا..." dir="ltr" autocomplete="off">
+
+<button class="btn" type="button" onclick="runCommand()">▶ تنفيذ</button>
+<button class="btn secondary" type="button" onclick="clearTerminal()">مسح الشاشة</button>
+
+<div id="terminalOutput" class="output" aria-live="polite">ABDO SAAD TERMINAL
+اكتب help للبدء.</div>
+</div>
 </section>
 
-<section class="section content-section" id="terminal">
-  <div class="section-heading">
-    <h2>الطرفية <span>التعليمية</span></h2>
-  </div>
+<section id="learn">
+<h2 class="section-title">📚 مركز التعلّم</h2>
 
-  <div class="terminal">
-    <div class="terminal-bar">
-      <span>ABDO-EDU-SHELL</span>
-      <span class="terminal-dots">● ● ●</span>
-    </div>
+<div class="panel lesson">
 
-    <div class="terminal-output" id="terminalOutput" aria-live="polite">ABDO SAAD Educational Terminal
-اكتب help لعرض الأوامر المتاحة.
-هذه محاكاة تعليمية داخل الصفحة وليست طرفية نظام حقيقية.</div>
+<div class="lesson-item">
+<h3>🛡️ حماية الحسابات</h3>
+استخدم كلمة مرور قوية وفريدة لكل حساب، وفعّل التحقق بخطوتين.
+لا تشارك رموز تسجيل الدخول مع أي شخص.
+</div>
 
-    <form class="terminal-input-row" id="terminalForm">
-      <input id="terminalInput" placeholder="اكتب help..." aria-label="أمر الطرفية" autocomplete="off">
-      <button class="btn btn-primary" type="submit">تنفيذ</button>
-    </form>
-  </div>
+<div class="lesson-item">
+<h3>🔗 أمن الروابط</h3>
+افحص اسم النطاق بعناية، ولا تدخل كلمة مرورك في صفحات غير موثوقة.
+وجود HTTPS وحده لا يضمن أن الموقع موثوق.
+</div>
+
+<div class="lesson-item">
+<h3>💻 أساسيات البرمجة</h3>
+HTML لبناء الصفحة، وCSS لتنسيقها، وJavaScript لإضافة التفاعل.
+</div>
+
+<div class="lesson-item">
+<h3>🌐 أساسيات الشبكات</h3>
+IP عنوان يستخدم في الشبكة، وDNS يساعد على تحويل أسماء النطاقات،
+وHTTPS يشفّر الاتصال بين المتصفح والموقع.
+</div>
+
+</div>
 </section>
 
-<section class="section content-section" id="lessons">
-  <div class="section-heading">
-    <h2>مكتبة <span>الدروس</span></h2>
-  </div>
-
-  <article class="lesson">
-    <h3>1. حماية الحسابات</h3>
-    <p>استخدم كلمة مرور فريدة لكل حساب، وفعّل التحقق بخطوتين. لا تشارك رموز تسجيل الدخول مع أي شخص.</p>
-  </article>
-
-  <article class="lesson">
-    <h3>2. اكتشاف الروابط المشبوهة</h3>
-    <p>راجع اسم النطاق بعناية، ولا تدخل بياناتك عبر رابط وصلك من مصدر غير موثوق. وجود HTTPS وحده لا يثبت أن الموقع جدير بالثقة.</p>
-  </article>
-
-  <article class="lesson">
-    <h3>3. بداية البرمجة</h3>
-    <p>HTML لبناء عناصر الصفحة، وCSS لتنسيقها، وJavaScript لإضافة التفاعل. ابدأ بمشروع صغير وطوّره خطوة بخطوة.</p>
-  </article>
-
-  <article class="lesson">
-    <h3>4. أساسيات الشبكات</h3>
-    <p>تعرّف على عنوان IP واسم النطاق وDNS وHTTPS. طبّق تجاربك على أجهزة وبيئات تملكها أو لديك إذن صريح باستخدامها.</p>
-  </article>
+<section id="lessonOutput" class="hidden">
+<h2 class="section-title">📖 شرح إضافي</h2>
+<div id="lessonText" class="panel lesson"></div>
 </section>
 
-<section class="section content-section" id="quiz">
-  <div class="section-heading">
-    <h2>اختبار <span>المعرفة</span></h2>
-    <span class="muted small">3 أسئلة</span>
-  </div>
+<section id="quiz">
+<h2 class="section-title">📝 اختبار المعلومات</h2>
 
-  <div class="panel">
-    <div id="quizQuestions"></div>
-    <button class="btn btn-primary" id="submitQuiz" type="button">تصحيح الاختبار</button>
-    <div class="result hidden" id="quizResult" aria-live="polite"></div>
-    <div class="small muted" id="quizHistory" style="margin-top:12px"></div>
-  </div>
+<div class="panel">
+<form id="quizForm">
+
+<div class="question">
+<strong>1. ما فائدة HTTPS الأساسية؟</strong>
+
+<label><input type="radio" name="q1" value="a"> تسريع الهاتف دائماً</label>
+<label><input type="radio" name="q1" value="b"> تشفير الاتصال بالموقع</label>
+<label><input type="radio" name="q1" value="c"> ضمان موثوقية كل المواقع</label>
+</div>
+
+<div class="question">
+<strong>2. ماذا تفعل مع رابط تسجيل دخول مشبوه؟</strong>
+
+<label><input type="radio" name="q2" value="a"> أدخل كلمة المرور</label>
+<label><input type="radio" name="q2" value="b"> أرسله للجميع</label>
+<label><input type="radio" name="q2" value="c"> أتحقق من المصدر وأتجنب الرابط</label>
+</div>
+
+<div class="question">
+<strong>3. ما وظيفة CSS؟</strong>
+
+<label><input type="radio" name="q3" value="a"> تنسيق مظهر الصفحة</label>
+<label><input type="radio" name="q3" value="b"> اختراق الأجهزة</label>
+<label><input type="radio" name="q3" value="c"> إنشاء الإنترنت وحده</label>
+</div>
+
+<button type="submit" class="btn">📊 عرض النتيجة</button>
+
+</form>
+
+<div id="quizOutput" class="output" aria-live="polite"></div>
+</div>
 </section>
 
-<section class="section content-section" id="about">
-  <div class="section-heading">
-    <h2>عن <span>المشروع</span></h2>
-  </div>
+<section id="about">
+<h2 class="section-title">👨‍💻 عن المشروع</h2>
 
-  <div class="panel">
-    <h3>ABDO SAAD | HORROR TERMINAL</h3>
-    <p class="muted">مشروع تعليمي يجمع واجهة سايبربانك مع أدوات بسيطة لتعلم البرمجة والأمن الرقمي.</p>
-    <p class="muted small">الإحصائيات ونتائج الاختبارات تُحفظ في تخزين المتصفح على هذا الجهاز فقط، وقد تُفقد عند مسح بيانات المتصفح. لا يوجد حاليًا حساب مستخدم أو خادم أو مزامنة بين الأجهزة.</p>
-    <p class="muted small">فاحص الروابط لا يضمن اكتشاف الاحتيال أو البرمجيات الضارة.</p>
-  </div>
+<div class="panel lesson">
+<p>
+ABDO SAAD — HORROR TERMINAL
+<br>
+مشروع تعليمي يجمع بين التصميم السينمائي والتوعية بالبرمجة والأمن الرقمي.
+</p>
+
+<p>
+المطور: <strong class="red">Abdo Saad</strong>
+</p>
+
+<p class="small">
+جميع مفاجآت الرعب تأثيرات مرئية داخل الصفحة فقط.
+الموقع لا يخترق الأجهزة ولا يصل إلى ملفات الزوار أو بياناتهم.
+</p>
+</div>
 </section>
 
 </main>
 
 <footer>
-  <div class="container">
-    <div>ABDO SAAD © <span id="year"></span></div>
-    <div>منصة تعليمية للتجربة والتعلّم المسؤول</div>
-  </div>
+<span class="red">ABDO SAAD</span>
+<br>
+HORROR HACKER TERMINAL
+<br>
+منصة تعليمية للبرمجة والأمن السيبراني
+<br>
+© 2026 جميع الحقوق محفوظة
 </footer>
-
-<div class="scare-overlay" id="scareOverlay" role="dialog" aria-modal="true" aria-label="تأثير بصري اختياري">
-  <div class="scare-content">
-    <div aria-hidden="true">👁️</div>
-    <h2>أنت داخل التجربة</h2>
-    <p>هذا تأثير بصري اختياري فقط.</p>
-    <button class="btn btn-primary" id="closeScare" type="button">إغلاق التأثير</button>
-  </div>
-</div>
-
-<div class="toast hidden" id="toast" role="status" aria-live="polite"></div>
 
 <script>
 "use strict";
 
-/* التخزين المحلي */
-const STORAGE_KEY = "abdoTerminalStatsV1";
+/* التنقل داخل الصفحة */
+function go(id){
+const element=document.getElementById(id);
+if(element){
+element.scrollIntoView({
+behavior:"smooth",
+block:"start"
+});
+}
+}
 
-const defaultStats = {
-  tools: 0,
-  attempts: 0,
-  lastScore: null,
-  bestScore: null,
-  history: []
+/* فحص مبدئي للرابط */
+function checkUrl(){
+const input=document.getElementById("urlInput");
+const output=document.getElementById("urlOutput");
+const value=input.value.trim();
+
+if(!value){
+output.textContent="اكتب رابطاً أولاً.";
+return;
+}
+
+let parsed;
+
+try{
+parsed=new URL(value);
+}catch(error){
+output.textContent="صيغة الرابط غير صحيحة.\nمثال: https://example.com";
+return;
+}
+
+if(!["http:","https:"].includes(parsed.protocol)){
+output.textContent="نوع البروتوكول غير مدعوم.";
+return;
+}
+
+const warnings=[];
+
+if(parsed.protocol!=="https:"){
+warnings.push("الرابط لا يستخدم HTTPS.");
+}
+
+if(parsed.username||parsed.password){
+warnings.push("الرابط يحتوي على بيانات دخول ضمن العنوان.");
+}
+
+if(parsed.hostname.startsWith("xn--")||parsed.hostname.includes(".xn--")){
+warnings.push("اسم النطاق يحتوي على ترميز دولي يستحق المراجعة.");
+}
+
+if(parsed.hostname.split(".").length>=5){
+warnings.push("اسم النطاق يحتوي على مستويات فرعية عديدة.");
+}
+
+output.textContent=
+"اسم المضيف: "+parsed.hostname+
+"\nالبروتوكول: "+parsed.protocol+
+"\n\n"+
+(warnings.length
+?"ملاحظات:\n- "+warnings.join("\n- ")
+:"لم تظهر علامات التحذير البسيطة التي يفحصها النموذج.")+
+"\n\nهذا الفحص مبدئي ولا يضمن أن الموقع آمن.";
+}
+
+/* أوامر الطرفية التعليمية */
+const commandInput=document.getElementById("commandInput");
+
+function runCommand(){
+const command=commandInput.value.trim().toLowerCase();
+const output=document.getElementById("terminalOutput");
+
+const commands={
+help:"الأوامر المتاحة:\nhelp — عرض الأوامر\nabout — معلومات المنصة\ndate — الوقت المحلي\ntips — نصائح الحماية\nclear — مسح الشاشة",
+
+about:"ABDO SAAD Horror Hacker Terminal\nمنصة تعليمية للبرمجة والأمن السيبراني.",
+
+tips:"1. استخدم كلمات مرور فريدة.\n2. فعّل التحقق بخطوتين.\n3. تجنب المرفقات المشبوهة.\n4. حدّث برامجك باستمرار.",
+
+date:"الوقت المحلي:\n"+new Date().toLocaleString()
 };
 
-function loadStats() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (!raw) return {...defaultStats};
-
-    const saved = JSON.parse(raw);
-    return {
-      tools: Number.isFinite(saved.tools) && saved.tools >= 0 ? saved.tools : 0,
-      attempts: Number.isFinite(saved.attempts) && saved.attempts >= 0 ? saved.attempts : 0,
-      lastScore: Number.isFinite(saved.lastScore) ? saved.lastScore : null,
-      bestScore: Number.isFinite(saved.bestScore) ? saved.bestScore : null,
-      history: Array.isArray(saved.history) ? saved.history.slice(0,20) : []
-    };
-  } catch {
-    return {...defaultStats};
-  }
+if(command==="clear"){
+output.textContent="";
+}else if(commands[command]){
+output.textContent=commands[command];
+}else if(command){
+output.textContent="أمر غير معروف. اكتب help لعرض الأوامر.";
+}else{
+output.textContent="اكتب أمراً أولاً.";
 }
 
-let stats = loadStats();
-
-function saveStats() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(stats));
-    return true;
-  } catch {
-    showToast("تعذّر حفظ البيانات. قد يكون تخزين المتصفح ممتلئًا أو معطّلًا.");
-    return false;
-  }
+commandInput.value="";
 }
 
-function renderStats() {
-  document.getElementById("statTools").textContent = stats.tools;
-  document.getElementById("statAttempts").textContent = stats.attempts;
-  document.getElementById("statLast").textContent =
-    stats.lastScore === null ? "—" : stats.lastScore;
-  document.getElementById("statBest").textContent =
-    stats.bestScore === null ? "—" : stats.bestScore;
-
-  const progress = Math.min(100, stats.tools * 8 + stats.attempts * 12);
-  document.getElementById("progressBar").style.width = progress + "%";
-  document.getElementById("progressText").textContent =
-    "استخدمت الأدوات " + stats.tools +
-    " مرة، وأجريت " + stats.attempts + " محاولة اختبار.";
-
-  const history = document.getElementById("quizHistory");
-  if (!stats.history.length) {
-    history.textContent = "لا توجد نتائج سابقة محفوظة حتى الآن.";
-  } else {
-    history.textContent = "آخر نتيجة محفوظة: " +
-      stats.history[0].score + "/100 — " + stats.history[0].date;
-  }
+function clearTerminal(){
+document.getElementById("terminalOutput").textContent="";
+commandInput.value="";
 }
 
-function incrementTool() {
-  stats.tools++;
-  saveStats();
-  renderStats();
+commandInput.addEventListener("keydown",function(event){
+if(event.key==="Enter"){
+runCommand();
 }
-
-function showToast(message) {
-  const toast = document.getElementById("toast");
-  toast.textContent = message;
-  toast.classList.remove("hidden");
-
-  clearTimeout(showToast.timer);
-  showToast.timer = setTimeout(() => toast.classList.add("hidden"), 3000);
-}
-
-/* إخفاء صورة الواجهة عند عدم وجودها */
-const heroImage = document.getElementById("heroImage");
-const fallbackSymbol = document.getElementById("fallbackSymbol");
-
-fallbackSymbol.style.display = "none";
-
-heroImage.addEventListener("error", () => {
-  heroImage.style.display = "none";
-  fallbackSymbol.style.display = "block";
 });
 
-heroImage.addEventListener("load", () => {
-  heroImage.style.display = "block";
-  fallbackSymbol.style.display = "none";
+/* الدروس الإضافية */
+function showLesson(type){
+const section=document.getElementById("lessonOutput");
+const text=document.getElementById("lessonText");
+
+const lessons={
+network:
+"<h3>أساسيات الشبكات</h3>"+
+"<p><b>IP:</b> عنوان يستخدم لتحديد واجهة اتصال بالشبكة.</p>"+
+"<p><b>DNS:</b> يساعد في تحويل اسم النطاق إلى عنوان IP.</p>"+
+"<p><b>HTTPS:</b> يشفّر الاتصال بين المتصفح والموقع.</p>",
+
+coding:
+"<h3>مقدمة في تطوير الويب</h3>"+
+"<p><b>HTML:</b> هيكل الصفحة.</p>"+
+"<p><b>CSS:</b> المظهر والألوان والتخطيط.</p>"+
+"<p><b>JavaScript:</b> التفاعل والأحداث.</p>"
+};
+
+text.innerHTML=lessons[type]||"لا يوجد درس متاح.";
+section.classList.remove("hidden");
+
+section.scrollIntoView({
+behavior:"smooth",
+block:"start"
 });
-
-/* التنقل بين الأقسام بدون تفعيل الرعب */
-document.querySelectorAll("[data-go]").forEach(button => {
-  button.addEventListener("click", () => {
-    const target = document.getElementById(button.dataset.go);
-    if (target) target.scrollIntoView({behavior:"smooth", block:"start"});
-  });
-});
-
-/* فاحص الروابط: تحليل محلي مبدئي */
-document.getElementById("checkUrl").addEventListener("click", () => {
-  const input = document.getElementById("urlInput").value.trim();
-  const result = document.getElementById("urlResult");
-
-  result.className = "result";
-
-  if (!input) {
-    result.textContent = "اكتب رابطًا أولًا.";
-    return;
-  }
-
-  let url;
-  try {
-    url = new URL(input);
-  } catch {
-    result.classList.add("warn");
-    result.textContent = "تعذّر فهم الرابط. تأكد من كتابته بصيغة صحيحة مثل https://example.com";
-    incrementTool();
-    return;
-  }
-
-  const warnings = [];
-
-  if (url.protocol !== "https:") {
-    warnings.push("الرابط لا يستخدم HTTPS.");
-  }
-
-  if (url.username || url.password) {
-    warnings.push("الرابط يحتوي على معلومات دخول ضمن عنوانه.");
-  }
-
-  if (url.hostname.startsWith("xn--") || url.hostname.includes(".xn--")) {
-    warnings.push("اسم النطاق يحتوي على صيغة أحرف دولية قد تستحق المراجعة.");
-  }
-
-  if (url.hostname.split(".").length >= 5) {
-    warnings.push("اسم النطاق يحتوي على مستويات كثيرة.");
-  }
-
-  if (url.hostname.length > 60) {
-    warnings.push("اسم النطاق طويل بشكل ملحوظ.");
-  }
-
-  if (warnings.length) {
-    result.classList.add("warn");
-    result.textContent =
-      "ظهرت علامات تستحق المراجعة:\n• " +
-      warnings.join("\n• ") +
-      "\n\nهذه العلامات ليست دليلًا قاطعًا على الاحتيال، وغيابها لا يعني أن الرابط آمن.";
-  } else {
-    result.classList.add("good");
-    result.textContent =
-      "لم تظهر العلامات البسيطة التي تبحث عنها هذه الأداة.\nهذا لا يؤكد أن الموقع آمن. راجع النطاق بنفسك ولا تدخل بيانات حساسة إذا كنت غير متأكد.";
-  }
-
-  incrementTool();
-});
-
-/* الطرفية التعليمية */
-const terminalOutput = document.getElementById("terminalOutput");
-const terminalInput = document.getElementById("terminalInput");
-
-function terminalWrite(message) {
-  terminalOutput.textContent += "\n\n> " + message;
-  terminalOutput.scrollTop = terminalOutput.scrollHeight;
 }
 
-document.getElementById("terminalForm").addEventListener("submit", event => {
-  event.preventDefault();
+/* اختبار المعلومات */
+document.getElementById("quizForm").addEventListener("submit",function(event){
+event.preventDefault();
 
-  const command = terminalInput.value.trim().toLowerCase();
-  terminalInput.value = "";
+const answers={
+q1:"b",
+q2:"c",
+q3:"a"
+};
 
-  if (!command) return;
+let score=0;
 
-  switch (command) {
-    case "help":
-      terminalWrite("الأوامر المتاحة:\nhelp — عرض الأوامر\nabout — معلومات المشروع\ndate — التاريخ الحالي\ntips — نصائح أمان\nclear — مسح الشاشة");
-      break;
+for(const [question,correct] of Object.entries(answers)){
+const selected=document.querySelector('input[name="'+question+'"]:checked');
 
-    case "about":
-      terminalWrite("ABDO SAAD Educational Terminal — محاكاة تعليمية داخل المتصفح.");
-      break;
+if(selected&&selected.value===correct){
+score++;
+}
+}
 
-    case "date":
-      terminalWrite(new Date().toLocaleString("ar-EG"));
-      break;
-
-    case "tips":
-      terminalWrite("استخدم كلمات مرور فريدة، وفعّل التحقق بخطوتين، ولا تفتح الروابط غير الموثوقة.");
-      break;
-
-    case "clear":
-      terminalOutput.textContent = "تم مسح مخرجات الطرفية.\nاكتب help لعرض الأوامر.";
-      break;
-
-    default:
-      terminalWrite("أمر غير معروف. اكتب help لعرض الأوامر المتاحة.");
-  }
-
-  incrementTool();
+document.getElementById("quizOutput").textContent=
+"نتيجتك: "+score+" من 3.\n"+
+(score===3
+?"ممتاز! كل إجاباتك صحيحة."
+:"راجع الدروس وحاول مرة أخرى.");
 });
 
-/* الاختبار */
-const questions = [
-  {
-    question:"ما الطريقة الأفضل لحماية الحساب؟",
-    options:[
-      "استخدام كلمة مرور واحدة في كل المواقع",
-      "كلمة مرور فريدة مع التحقق بخطوتين",
-      "إرسال كلمة المرور للأصدقاء"
-    ],
-    answer:1
-  },
-  {
-    question:"هل HTTPS وحده يثبت أن الموقع موثوق؟",
-    options:[
-      "نعم دائمًا",
-      "لا، يجب التحقق من الموقع والنطاق أيضًا",
-      "نعم إذا كان الموقع مشهورًا"
-    ],
-    answer:1
-  },
-  {
-    question:"ما وظيفة CSS في تطوير الويب؟",
-    options:[
-      "تنسيق مظهر الصفحة",
-      "تخزين كلمات المرور",
-      "فحص جميع الفيروسات"
-    ],
-    answer:0
-  }
+/* قطرات حمراء متحركة */
+(function(){
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+return;
+}
+
+for(let i=0;i<14;i++){
+const particle=document.createElement("div");
+
+particle.className="red-particle";
+particle.style.left=Math.random()*100+"vw";
+particle.style.animationDuration=(5+Math.random()*8)+"s";
+particle.style.animationDelay=(-Math.random()*10)+"s";
+
+document.body.appendChild(particle);
+}
+})();
+
+/* مفاجآت الرعب السينمائية */
+(function(){
+
+const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+const flash=document.getElementById("horrorFlash");
+const toast=document.getElementById("horrorToast");
+const icon=document.getElementById("scareIcon");
+const title=document.getElementById("scareTitle");
+const message=document.getElementById("scareMessage");
+const scareToggle=document.getElementById("scareToggle");
+const soundToggle=document.getElementById("soundToggle");
+
+let enabled=true;
+let soundEnabled=false;
+let timer=null;
+let audioContext=null;
+
+const scenes=[
+{
+icon:"💀",
+title:"SYSTEM WARNING",
+message:"ظهرت إشارة غامضة... إنها مجرد خدعة بصرية داخل الموقع!"
+},
+{
+icon:"👁️",
+title:"WHO IS WATCHING?",
+message:"العين ظهرت للحظة ثم اختفت... 👁️"
+},
+{
+icon:"🕷️",
+title:"UNKNOWN SIGNAL",
+message:"تم رصد إشارة خيالية في شاشة التجربة."
+},
+{
+icon:"☠️",
+title:"DARK MODE",
+message:"أهلاً بك في الجانب المظلم من التجربة."
+},
+{
+icon:"⚠️",
+title:"SYSTEM ALERT",
+message:"تأثير جديد ظهر! تابع بحذر."
+},
+{
+icon:"👻",
+title:"GHOST SIGNAL",
+message:"لا تقلق، كل ما تراه مجرد رسوم داخل الصفحة."
+}
 ];
 
-const quizQuestions = document.getElementById("quizQuestions");
-let answers = {};
+/* الصوت اختياري ويظل مغلقاً حتى يضغط المستخدم */
+function tone(){
+if(!soundEnabled)return;
 
-function renderQuiz() {
-  quizQuestions.replaceChildren();
+try{
+const AC=window.AudioContext||window.webkitAudioContext;
 
-  questions.forEach((question, index) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "lesson";
+if(!AC)return;
 
-    const title = document.createElement("h3");
-    title.textContent = (index + 1) + ". " + question.question;
-    wrapper.appendChild(title);
-
-    question.options.forEach((option, optionIndex) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "quiz-option";
-      button.textContent = option;
-      button.setAttribute("aria-pressed", "false");
-
-      button.addEventListener("click", () => {
-        answers[index] = optionIndex;
-
-        wrapper.querySelectorAll(".quiz-option").forEach(item => {
-          item.classList.remove("selected");
-          item.setAttribute("aria-pressed", "false");
-        });
-
-        button.classList.add("selected");
-        button.setAttribute("aria-pressed", "true");
-      });
-
-      wrapper.appendChild(button);
-    });
-
-    quizQuestions.appendChild(wrapper);
-  });
+if(!audioContext){
+audioContext=new AC();
 }
 
-document.getElementById("submitQuiz").addEventListener("click", () => {
-  if (Object.keys(answers).length !== questions.length) {
-    showToast("جاوب على كل الأسئلة الأول.");
-    return;
-  }
-
-  let correct = 0;
-
-  questions.forEach((question, index) => {
-    if (answers[index] === question.answer) correct++;
-  });
-
-  const score = Math.round((correct / questions.length) * 100);
-  const now = new Date();
-
-  stats.attempts++;
-  stats.lastScore = score;
-  stats.bestScore =
-    stats.bestScore === null ? score : Math.max(stats.bestScore, score);
-
-  stats.history.unshift({
-    score,
-    date: now.toLocaleDateString("ar-EG")
-  });
-
-  stats.history = stats.history.slice(0,20);
-
-  saveStats();
-  renderStats();
-
-  const result = document.getElementById("quizResult");
-  result.className = "result " + (score >= 70 ? "good" : "warn");
-  result.textContent = "نتيجتك: " + score + "/100 — أجبت إجابة صحيحة عن " +
-    correct + " من " + questions.length + " أسئلة.";
-
-  incrementTool();
-});
-
-/* وضع الرعب: لا يعمل عند الضغط على الأزرار العادية */
-let horrorEnabled = false;
-let soundEnabled = false;
-
-const horrorToggle = document.getElementById("horrorToggle");
-const soundToggle = document.getElementById("soundToggle");
-const scareOverlay = document.getElementById("scareOverlay");
-
-function updateHorrorButton() {
-  horrorToggle.textContent = horrorEnabled ? "الرعب: يعمل" : "الرعب: متوقف";
+if(audioContext.state==="suspended"){
+audioContext.resume();
 }
 
-horrorToggle.addEventListener("click", () => {
-  horrorEnabled = !horrorEnabled;
-  updateHorrorButton();
-  showToast(horrorEnabled ? "تم تفعيل التأثيرات الاختيارية." : "تم إيقاف التأثيرات.");
-});
+const oscillator=audioContext.createOscillator();
+const gain=audioContext.createGain();
+const now=audioContext.currentTime;
 
-soundToggle.addEventListener("click", () => {
-  soundEnabled = !soundEnabled;
-  soundToggle.textContent = soundEnabled ? "الصوت: يعمل" : "الصوت: مغلق";
-  showToast(soundEnabled ? "تم السماح بالصوت عند تشغيل التأثير يدويًا." : "تم إيقاف الصوت.");
-});
+oscillator.type="sawtooth";
 
-function triggerScare() {
-  if (!horrorEnabled) {
-    showToast("فعّل وضع الرعب أولًا من الزر العلوي.");
-    return;
-  }
+oscillator.frequency.setValueAtTime(180,now);
+oscillator.frequency.exponentialRampToValueAtTime(65,now+.22);
 
-  scareOverlay.classList.add("active");
-  incrementTool();
+gain.gain.setValueAtTime(.0001,now);
+gain.gain.exponentialRampToValueAtTime(.045,now+.025);
+gain.gain.exponentialRampToValueAtTime(.0001,now+.28);
 
-  if (soundEnabled) playTone();
+oscillator.connect(gain);
+gain.connect(audioContext.destination);
+
+oscillator.start();
+oscillator.stop(now+.3);
+
+}catch(error){}
 }
 
-function closeScare() {
-  scareOverlay.classList.remove("active");
+/* رمز مفاجئ يظهر ثم يختفي */
+function pop(emoji){
+if(reduceMotion)return;
+
+const element=document.createElement("div");
+
+element.className="scare-emoji";
+element.textContent=emoji;
+
+element.style.left=(18+Math.random()*64)+"vw";
+element.style.top=(25+Math.random()*50)+"vh";
+
+document.body.appendChild(element);
+
+setTimeout(function(){
+element.remove();
+},1300);
 }
 
-document.getElementById("dareButton").addEventListener("click", triggerScare);
-document.getElementById("cardDare").addEventListener("click", triggerScare);
-document.getElementById("closeScare").addEventListener("click", closeScare);
+/* تشغيل المفاجأة */
+function scare(){
+if(!enabled)return;
 
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") closeScare();
-});
+const scene=scenes[Math.floor(Math.random()*scenes.length)];
 
-/* صوت بسيط اختياري؛ لا يعمل تلقائيًا */
-function playTone() {
-  try {
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!AudioContextClass) return;
+icon.textContent=scene.icon;
+title.textContent=scene.title;
+message.textContent=scene.message;
 
-    const context = new AudioContextClass();
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
+toast.classList.add("show");
 
-    oscillator.type = "sawtooth";
-    oscillator.frequency.setValueAtTime(95, context.currentTime);
-    oscillator.frequency.exponentialRampToValueAtTime(45, context.currentTime + 0.35);
+if(!reduceMotion){
+flash.classList.add("active");
+document.body.classList.add("scare-glitch");
 
-    gain.gain.setValueAtTime(0.08, context.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + 0.4);
+const emojis=["💀","👁️","🕷️","👻","☠️"];
 
-    oscillator.connect(gain);
-    gain.connect(context.destination);
-
-    oscillator.start();
-    oscillator.stop(context.currentTime + 0.4);
-    oscillator.onended = () => context.close();
-  } catch {
-    /* تجاهل عدم دعم الصوت */
-  }
+pop(emojis[Math.floor(Math.random()*emojis.length)]);
 }
 
-/* مسح الإحصائيات */
-document.getElementById("resetStats").addEventListener("click", () => {
-  const confirmed = confirm("هل تريد مسح إحصائيات هذا الموقع ونتائج الاختبارات المحفوظة على هذا الجهاز؟");
-  if (!confirmed) return;
+tone();
 
-  stats = {...defaultStats, history:[]};
-  saveStats();
-  renderStats();
+clearTimeout(timer);
 
-  document.getElementById("quizResult").classList.add("hidden");
-  showToast("تمت إعادة ضبط الإحصائيات المحلية.");
+timer=setTimeout(function(){
+toast.classList.remove("show");
+flash.classList.remove("active");
+document.body.classList.remove("scare-glitch");
+},1500);
+}
+
+/* زر تشغيل وإيقاف الرعب */
+scareToggle.addEventListener("click",function(event){
+event.stopPropagation();
+
+enabled=!enabled;
+
+scareToggle.textContent=
+enabled?"👁️ الرعب: تشغيل":"👁️ الرعب: إيقاف";
+
+if(!enabled){
+toast.classList.remove("show");
+flash.classList.remove("active");
+document.body.classList.remove("scare-glitch");
+
+clearTimeout(timer);
+}else{
+scare();
+}
 });
 
-document.getElementById("year").textContent = new Date().getFullYear();
+/* زر الصوت */
+soundToggle.addEventListener("click",function(event){
+event.stopPropagation();
 
-renderStats();
-renderQuiz();
-updateHorrorButton();
+soundEnabled=!soundEnabled;
+
+soundToggle.textContent=
+soundEnabled?"🔊 الصوت: تشغيل":"🔇 الصوت: مغلق";
+
+soundToggle.setAttribute("aria-pressed",String(soundEnabled));
+
+if(soundEnabled){
+tone();
+}
+});
+
+/* المفاجآت عند الضغط على الأزرار والبطاقات */
+document.addEventListener("click",function(event){
+
+if(event.target.closest("#scareControls")||!enabled){
+return;
+}
+
+if(
+event.target.closest("button")||
+event.target.closest(".card")||
+event.target===document.body||
+event.target===document.documentElement
+){
+scare();
+}
+
+});
+
+})();
 </script>
-
 </body>
-    </html>
+  </html>
