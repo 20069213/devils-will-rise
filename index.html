@@ -6,556 +6,120 @@
 <meta name="theme-color" content="#080000">
 <meta name="description" content="ABDO SAAD Horror Hacker Terminal - منصة تعليمية للأمن السيبراني">
 <title>ABDO SAAD | HORROR TERMINAL</title>
-
 <style>
-:root{
---red:#ff1028;
---black:#050505;
---panel:#10090b;
---green:#00ff9c;
---white:#f5f5f5;
---gray:#aaa
-}
-
+:root{--red:#ff1028;--black:#050505;--panel:#10090b;--green:#00ff9c;--white:#f5f5f5;--gray:#aaa}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;background:var(--black)}
-
-body{
-margin:0;
-min-height:100vh;
-overflow-x:hidden;
-background:radial-gradient(ellipse at 50% 0%,#300008 0%,transparent 55%),var(--black);
-color:var(--white);
-font-family:Tahoma,Arial,sans-serif
-}
-
-body::before{
-content:"";
-position:fixed;
-inset:0;
-z-index:50;
-pointer-events:none;
-background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(255,0,30,.025) 4px)
-}
-
-.ambient{
-position:fixed;
-inset:-30%;
-z-index:-1;
-pointer-events:none;
-background:radial-gradient(circle,rgba(255,0,30,.12),transparent 55%);
-animation:ambientMove 8s ease-in-out infinite alternate
-}
-
-@keyframes ambientMove{
-from{transform:translate(-8%,-5%) scale(.8);opacity:.3}
-to{transform:translate(8%,8%) scale(1.3);opacity:1}
-}
-
-header{
-position:sticky;
-top:0;
-z-index:30;
-text-align:center;
-padding:14px 10px;
-background:rgba(5,5,5,.95);
-border-bottom:1px solid var(--red);
-box-shadow:0 0 20px #ff102822;
-backdrop-filter:blur(8px)
-}
-
-.logo{
-font-size:clamp(24px,6vw,34px);
-font-weight:900;
-letter-spacing:2px
-}
-
-.logo span,.red{color:var(--red)}
-
-.logo span{
-animation:glow 1.8s infinite alternate
-}
-
-@keyframes glow{
-from{text-shadow:0 0 4px var(--red)}
-to{text-shadow:0 0 10px var(--red),0 0 25px #ff001e}
-}
-
-.subtitle{
-color:var(--gray);
-font-size:10px;
-letter-spacing:4px;
-margin-top:5px
-}
-
-.status{
-color:var(--green);
-font-size:11px;
-margin-top:9px
-}
-
-nav{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:7px;
-margin-top:12px
-}
-
-button{
-cursor:pointer;
-font-family:inherit;
-transition:.2s
-}
-
-nav button{
-color:white;
-background:#160609;
-border:1px solid #761020;
-border-radius:5px;
-padding:9px 12px;
-font-size:12px
-}
-
-button:hover{
-box-shadow:0 0 12px #ff102855;
-border-color:var(--red)
-}
-
-button:active{transform:scale(.97)}
-
-main{
-width:min(100% - 22px,1050px);
-margin:18px auto
-}
-
-.hero{
-position:relative;
-overflow:hidden;
-padding:17px;
-border:1px solid var(--red);
-border-radius:10px;
-background:linear-gradient(145deg,#230006,#090909 65%);
-box-shadow:0 0 25px #ff102822;
-text-align:center
-}
-
-.hero img{
-display:block;
-width:100%;
-height:auto;
-border:1px solid #63101d;
-border-radius:6px;
-margin-bottom:18px
-}
-
-.hero h1{
-font-size:clamp(28px,7vw,46px);
-margin:12px 0
-}
-
-.hero p{
-color:#ccc;
-font-size:13px;
-line-height:2
-}
-
-.btn{
-background:var(--red);
-color:white;
-border:1px solid var(--red);
-border-radius:5px;
-padding:11px 15px;
-font-weight:bold;
-margin-top:8px
-}
-
-.btn.secondary{
-background:#18090c;
-border-color:#761020
-}
-
-.section-title{
-margin:27px 0 14px;
-padding:9px 12px;
-border-right:4px solid var(--red);
-font-size:20px;
-text-shadow:0 0 9px #ff102855
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(2,minmax(0,1fr));
-gap:11px
-}
-
-.card{
-position:relative;
-overflow:hidden;
-background:linear-gradient(145deg,#1b080c,#090909);
-border:1px solid #64101d;
-border-radius:8px;
-padding:17px 10px;
-text-align:center;
-animation:cardFloat 5s ease-in-out infinite
-}
-
+body{margin:0;min-height:100vh;overflow-x:hidden;background:radial-gradient(ellipse at 50% 0%,#300008 0%,transparent 55%),var(--black);color:var(--white);font-family:Tahoma,Arial,sans-serif}
+body::before{content:"";position:fixed;inset:0;z-index:50;pointer-events:none;background:repeating-linear-gradient(to bottom,transparent 0,transparent 3px,rgba(255,0,30,.025) 4px)}
+.ambient{position:fixed;inset:-30%;z-index:-1;pointer-events:none;background:radial-gradient(circle,rgba(255,0,30,.12),transparent 55%);animation:ambientMove 8s ease-in-out infinite alternate}
+@keyframes ambientMove{from{transform:translate(-8%,-5%) scale(.8);opacity:.3}to{transform:translate(8%,8%) scale(1.3);opacity:1}}
+header{position:sticky;top:0;z-index:30;text-align:center;padding:14px 10px;background:rgba(5,5,5,.95);border-bottom:1px solid var(--red);box-shadow:0 0 20px #ff102822;backdrop-filter:blur(8px)}
+.logo{font-size:clamp(24px,6vw,34px);font-weight:900;letter-spacing:2px}
+.logo span,.red{color:var(--red)}.logo span{animation:glow 1.8s infinite alternate}
+@keyframes glow{from{text-shadow:0 0 4px var(--red)}to{text-shadow:0 0 10px var(--red),0 0 25px #ff001e}}
+.subtitle{color:var(--gray);font-size:10px;letter-spacing:4px;margin-top:5px}
+.status{color:var(--green);font-size:11px;margin-top:9px}
+nav{display:flex;justify-content:center;flex-wrap:wrap;gap:7px;margin-top:12px}
+button{cursor:pointer;font-family:inherit;transition:.2s}
+nav button{color:white;background:#160609;border:1px solid #761020;border-radius:5px;padding:9px 12px;font-size:12px}
+button:hover{box-shadow:0 0 12px #ff102855;border-color:var(--red)}button:active{transform:scale(.97)}
+main{width:min(100% - 22px,1050px);margin:18px auto}
+.hero{position:relative;overflow:hidden;padding:17px;border:1px solid var(--red);border-radius:10px;background:linear-gradient(145deg,#230006,#090909 65%);box-shadow:0 0 25px #ff102822;text-align:center}
+.hero img{display:block;width:100%;height:auto;border:1px solid #63101d;border-radius:6px;margin-bottom:18px}
+.hero h1{font-size:clamp(28px,7vw,46px);margin:12px 0}.hero p{color:#ccc;font-size:13px;line-height:2}
+.btn{background:var(--red);color:white;border:1px solid var(--red);border-radius:5px;padding:11px 15px;font-weight:bold;margin-top:8px}
+.btn.secondary{background:#18090c;border-color:#761020}
+.section-title{margin:27px 0 14px;padding:9px 12px;border-right:4px solid var(--red);font-size:20px;text-shadow:0 0 9px #ff102855}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}
+.card{position:relative;overflow:hidden;background:linear-gradient(145deg,#1b080c,#090909);border:1px solid #64101d;border-radius:8px;padding:17px 10px;text-align:center;animation:cardFloat 5s ease-in-out infinite}
 .card:nth-child(even){animation-delay:-2.5s}
-
-@keyframes cardFloat{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-4px)}
-}
-
-.icon{
-color:var(--red);
-font-size:30px;
-margin-bottom:10px;
-filter:drop-shadow(0 0 6px #ff102855)
-}
-
-.card h3{font-size:14px;margin:7px 0}
-
-.card p{
-color:var(--gray);
-font-size:12px;
-line-height:1.8
-}
-
-.panel{
-padding:15px;
-margin-top:12px;
-background:var(--panel);
-border:1px solid #67101d;
-border-radius:8px;
-box-shadow:0 0 15px #ff102811
-}
-
-.small{
-color:var(--gray);
-font-size:12px;
-line-height:1.9
-}
-
-input,select{
-display:block;
-width:100%;
-min-width:0;
-margin:10px 0;
-padding:12px;
-color:white;
-background:#080808;
-border:1px solid #57202a;
-border-radius:5px;
-font-size:14px
-}
-
+@keyframes cardFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.icon{color:var(--red);font-size:30px;margin-bottom:10px;filter:drop-shadow(0 0 6px #ff102855)}
+.card h3{font-size:14px;margin:7px 0}.card p{color:var(--gray);font-size:12px;line-height:1.8}
+.panel{padding:15px;margin-top:12px;background:var(--panel);border:1px solid #67101d;border-radius:8px;box-shadow:0 0 15px #ff102811}
+.small{color:var(--gray);font-size:12px;line-height:1.9}
+input,select{display:block;width:100%;min-width:0;margin:10px 0;padding:12px;color:white;background:#080808;border:1px solid #57202a;border-radius:5px;font-size:14px}
 input:focus,select:focus{outline:1px solid var(--red)}
-
-.output{
-color:var(--green);
-white-space:pre-wrap;
-overflow-wrap:anywhere;
-line-height:1.9;
-font-size:13px;
-margin-top:12px
-}
-
-.terminal{
-background:#020704;
-border-color:#14553a
-}
-
-.terminal-title{
-color:var(--green);
-margin-bottom:10px;
-font-weight:bold
-}
-
-.lesson{
-color:#ddd;
-line-height:2
-}
-
-.lesson h3{
-color:var(--red);
-margin-bottom:7px
-}
-
-.lesson-item{
-padding:12px 0;
-border-bottom:1px solid #3e1b22
-}
-
-.question{
-padding:13px 0;
-border-bottom:1px solid #482029;
-line-height:1.9
-}
-
-.question label{
-display:block;
-margin:6px 0;
-color:#ddd
-}
-
-.question input{
-display:inline-block;
-width:auto;
-margin:0 0 0 5px
-}
-
+.output{color:var(--green);white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.9;font-size:13px;margin-top:12px}
+.terminal{background:#020704;border-color:#14553a}.terminal-title{color:var(--green);margin-bottom:10px;font-weight:bold}
+.lesson{color:#ddd;line-height:2}.lesson h3{color:var(--red);margin-bottom:7px}
+.lesson-item{padding:12px 0;border-bottom:1px solid #3e1b22}
+.question{padding:13px 0;border-bottom:1px solid #482029;line-height:1.9}
+.question label{display:block;margin:6px 0;color:#ddd}.question input{display:inline-block;width:auto;margin:0 0 0 5px}
 .hidden{display:none!important}
-
-footer{
-text-align:center;
-margin-top:30px;
-padding:22px 12px;
-color:#999;
-font-size:12px;
-line-height:2;
-border-top:1px solid #60101c
-}
-
-.horror-eye{
-position:fixed;
-left:10px;
-top:28%;
-z-index:15;
-font-size:34px;
-pointer-events:none;
-filter:drop-shadow(0 0 10px red);
-animation:eyeAppear 8s infinite
-}
-
-@keyframes eyeAppear{
-0%,15%,35%,100%{opacity:0;transform:scale(.3) rotate(-20deg)}
-20%,30%{opacity:.95;transform:scale(1.1)}
-}
-
-.horror-skull{
-position:fixed;
-right:10px;
-top:38%;
-z-index:15;
-font-size:32px;
-pointer-events:none;
-filter:drop-shadow(0 0 10px red);
-animation:skullMove 9s ease-in-out infinite
-}
-
-@keyframes skullMove{
-0%{transform:translateY(75px) rotate(-15deg);opacity:0}
-15%{opacity:.85}
-50%{transform:translateY(-75px) rotate(15deg);opacity:1}
-85%{opacity:.7}
-100%{transform:translateY(75px) rotate(-15deg);opacity:0}
-}
-
-.spider{
-position:fixed;
-top:-40px;
-z-index:14;
-font-size:24px;
-pointer-events:none;
-filter:drop-shadow(0 0 7px red);
-animation:spiderFall 10s linear infinite
-}
-
-.spider.one{left:7%;animation-delay:-3s}
-.spider.two{left:90%;animation-delay:-7s}
-
-@keyframes spiderFall{
-0%{transform:translateY(-40px) rotate(0);opacity:0}
-12%{opacity:.9}
-90%{opacity:.9}
-100%{transform:translateY(110vh) rotate(240deg);opacity:0}
-}
-
-.red-particle{
-position:fixed;
-top:-20px;
-width:3px;
-height:12px;
-border-radius:5px;
-background:var(--red);
-box-shadow:0 0 8px var(--red);
-z-index:12;
-pointer-events:none;
-animation:particleFall linear infinite
-}
-
-@keyframes particleFall{
-to{transform:translateY(110vh);opacity:0}
-}
-
-.glitch-active{animation:glitch .15s linear 2}
-
-@keyframes glitch{
-0%{transform:translateX(0)}
-25%{transform:translateX(2px)}
-50%{transform:translateX(-2px)}
-75%{transform:translateX(1px)}
-100%{transform:translateX(0)}
-}
-
-#horrorFlash{
-position:fixed;
-inset:0;
-z-index:80;
-pointer-events:none;
-opacity:0;
-background:radial-gradient(circle at center,rgba(255,0,30,.2),rgba(100,0,10,.72));
-transition:opacity .18s
-}
-
+footer{text-align:center;margin-top:30px;padding:22px 12px;color:#999;font-size:12px;line-height:2;border-top:1px solid #60101c}
+.horror-eye{position:fixed;left:10px;top:28%;z-index:15;font-size:34px;pointer-events:none;filter:drop-shadow(0 0 10px red);animation:eyeAppear 8s infinite}
+@keyframes eyeAppear{0%,15%,35%,100%{opacity:0;transform:scale(.3) rotate(-20deg)}20%,30%{opacity:.95;transform:scale(1.1)}}
+.horror-skull{position:fixed;right:10px;top:38%;z-index:15;font-size:32px;pointer-events:none;filter:drop-shadow(0 0 10px red);animation:skullMove 9s ease-in-out infinite}
+@keyframes skullMove{0%{transform:translateY(75px) rotate(-15deg);opacity:0}15%{opacity:.85}50%{transform:translateY(-75px) rotate(15deg);opacity:1}85%{opacity:.7}100%{transform:translateY(75px) rotate(-15deg);opacity:0}}
+.spider{position:fixed;top:-40px;z-index:14;font-size:24px;pointer-events:none;filter:drop-shadow(0 0 7px red);animation:spiderFall 10s linear infinite}
+.spider.one{left:7%;animation-delay:-3s}.spider.two{left:90%;animation-delay:-7s}
+@keyframes spiderFall{0%{transform:translateY(-40px) rotate(0);opacity:0}12%{opacity:.9}90%{opacity:.9}100%{transform:translateY(110vh) rotate(240deg);opacity:0}}
+.red-particle{position:fixed;top:-20px;width:3px;height:12px;border-radius:5px;background:var(--red);box-shadow:0 0 8px var(--red);z-index:12;pointer-events:none;animation:particleFall linear infinite}
+@keyframes particleFall{to{transform:translateY(110vh);opacity:0}}
+#horrorFlash{position:fixed;inset:0;z-index:80;pointer-events:none;opacity:0;background:radial-gradient(circle at center,rgba(255,0,30,.2),rgba(100,0,10,.72));transition:opacity .18s}
 #horrorFlash.active{opacity:1}
-
-#horrorToast{
-position:fixed;
-left:50%;
-top:50%;
-transform:translate(-50%,-50%) scale(.8);
-width:min(88%,360px);
-z-index:90;
-padding:22px 16px;
-text-align:center;
-background:rgba(7,0,2,.97);
-border:2px solid var(--red);
-border-radius:10px;
-box-shadow:0 0 35px #ff102899;
-color:#fff;
-opacity:0;
-visibility:hidden;
-pointer-events:none;
-transition:opacity .18s,transform .18s,visibility .18s
-}
-
-#horrorToast.show{
-opacity:1;
-visibility:visible;
-transform:translate(-50%,-50%) scale(1)
-}
-
-#horrorToast .scare-icon{
-font-size:48px;
-display:block;
-margin-bottom:10px;
-filter:drop-shadow(0 0 12px red)
-}
-
-#horrorToast .scare-title{
-color:var(--red);
-font-size:19px;
-font-weight:bold;
-margin-bottom:9px
-}
-
-#horrorToast .scare-message{
-font-size:14px;
-line-height:1.9;
-color:#eee
-}
-
-#horrorToast .scare-small{
-font-size:10px;
-color:#aaa;
-margin-top:12px
-}
-
-#scareControls{
-position:fixed;
-left:10px;
-bottom:12px;
-z-index:95;
-display:flex;
-gap:7px;
-flex-wrap:wrap
-}
-
-#scareControls button{
-background:#100609;
-color:#fff;
-border:1px solid #8d1023;
-border-radius:6px;
-padding:9px 11px;
-font-size:11px;
-box-shadow:0 0 12px #ff102822
-}
-
-.scare-emoji{
-position:fixed;
-z-index:75;
-pointer-events:none;
-font-size:clamp(35px,10vw,75px);
-filter:drop-shadow(0 0 16px #ff001e);
-animation:scarePop 1.2s ease-out forwards
-}
-
-@keyframes scarePop{
-0%{opacity:0;transform:translate(-50%,-50%) scale(.15) rotate(-25deg)}
-18%{opacity:1;transform:translate(-50%,-50%) scale(1.15) rotate(8deg)}
-35%{transform:translate(-50%,-50%) scale(1) rotate(-5deg)}
-75%{opacity:1}
-100%{opacity:0;transform:translate(-50%,-65%) scale(.8) rotate(15deg)}
-}
-
-@keyframes softGlitch{
-0%,100%{filter:none}
-25%{filter:drop-shadow(2px 0 #ff1028)}
-50%{filter:drop-shadow(-2px 0 #00ff9c)}
-75%{filter:none}
-}
-
+#horrorToast{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%) scale(.8);width:min(88%,360px);z-index:90;padding:22px 16px;text-align:center;background:rgba(7,0,2,.97);border:2px solid var(--red);border-radius:10px;box-shadow:0 0 35px #ff102899;color:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .18s,transform .18s,visibility .18s}
+#horrorToast.show{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+#horrorToast .scare-icon{font-size:48px;display:block;margin-bottom:10px;filter:drop-shadow(0 0 12px red)}
+#horrorToast .scare-title{color:var(--red);font-size:19px;font-weight:bold;margin-bottom:9px}
+#horrorToast .scare-message{font-size:14px;line-height:1.9;color:#eee}
+#horrorToast .scare-small{font-size:10px;color:#aaa;margin-top:12px}
+#scareControls{position:fixed;left:10px;bottom:12px;z-index:95;display:flex;gap:7px;flex-wrap:wrap}
+#scareControls button{background:#100609;color:#fff;border:1px solid #8d1023;border-radius:6px;padding:9px 11px;font-size:11px;box-shadow:0 0 12px #ff102822}
+.scare-emoji{position:fixed;z-index:75;pointer-events:none;font-size:clamp(35px,10vw,75px);filter:drop-shadow(0 0 16px #ff001e);animation:scarePop 1.2s ease-out forwards}
+@keyframes scarePop{0%{opacity:0;transform:translate(-50%,-50%) scale(.15) rotate(-25deg)}18%{opacity:1;transform:translate(-50%,-50%) scale(1.15) rotate(8deg)}35%{transform:translate(-50%,-50%) scale(1) rotate(-5deg)}75%{opacity:1}100%{opacity:0;transform:translate(-50%,-65%) scale(.8) rotate(15deg)}}
 body.scare-glitch main{animation:softGlitch .22s linear 2}
-
-@media(prefers-reduced-motion:reduce){
-*,*::before,*::after{
-animation-duration:.01ms!important;
-animation-iteration-count:1!important;
-scroll-behavior:auto!important;
-transition-duration:.01ms!important
-}
-}
-
-@media(min-width:650px){
-.grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-}
-
-@media(max-width:360px){
-nav button{padding:8px}
-#scareControls{left:5px;bottom:5px}
-#scareControls button{padding:8px;font-size:10px}
-}
+@keyframes softGlitch{0%,100%{filter:none}25%{filter:drop-shadow(2px 0 #ff1028)}50%{filter:drop-shadow(-2px 0 #00ff9c)}75%{filter:none}}
+/* Matrix screen */
+#matrixIntro{position:fixed;inset:0;z-index:99999;background:#000;overflow:hidden;display:none;opacity:0;transition:opacity .6s ease;direction:ltr;font-family:Arial,sans-serif}
+#matrixIntro.matrix-visible{display:block;opacity:1}
+#matrixCanvas{position:absolute;inset:0;width:100%;height:100%}
+.matrix-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(ellipse at center,rgba(0,40,0,.10),rgba(0,0,0,.35));pointer-events:none}
+.matrix-small{color:#00ff41;font-size:clamp(12px,3vw,20px);letter-spacing:8px;margin-bottom:20px;text-shadow:0 0 12px #00ff41}
+.matrix-title{color:#00ff41;font-size:clamp(42px,12vw,80px);font-weight:300;letter-spacing:12px;line-height:1.15;text-shadow:0 0 8px #00ff41,0 0 22px #00ff41,0 0 45px #008f11;animation:matrixGlow 2s infinite alternate}
+.matrix-subtitle{margin-top:25px;color:#087a24;font-size:clamp(8px,2vw,12px);letter-spacing:5px}
+.matrix-hint{position:absolute;bottom:8%;color:#087a24;font-size:11px;letter-spacing:4px;line-height:2}
+@keyframes matrixGlow{from{opacity:.75;text-shadow:0 0 8px #00ff41}to{opacity:1;text-shadow:0 0 12px #00ff41,0 0 35px #00ff41}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){nav button{padding:8px}#scareControls{left:5px;bottom:5px}#scareControls button{padding:8px;font-size:10px}.matrix-title{letter-spacing:7px}}
 </style>
 </head>
-
 <body>
 <div class="ambient" aria-hidden="true"></div>
 <div class="horror-eye" aria-hidden="true">👁️</div>
 <div class="horror-skull" aria-hidden="true">💀</div>
 <div class="spider one" aria-hidden="true">🕷️</div>
 <div class="spider two" aria-hidden="true">🕷️</div>
-
 <div id="horrorFlash" aria-hidden="true"></div>
-
 <div id="horrorToast" role="status" aria-live="polite">
 <span class="scare-icon" id="scareIcon">💀</span>
 <div class="scare-title" id="scareTitle">SYSTEM ALERT</div>
 <div class="scare-message" id="scareMessage">تأثير رعب سينمائي!</div>
 <div class="scare-small">تأثير بصري داخل الموقع فقط</div>
 </div>
-
 <div id="scareControls">
 <button id="scareToggle" type="button">👁️ الرعب: تشغيل</button>
 <button id="soundToggle" type="button" aria-pressed="false">🔇 الصوت: مغلق</button>
+</div>
+
+<!-- Matrix intro overlay -->
+<div id="matrixIntro" aria-hidden="true">
+<canvas id="matrixCanvas"></canvas>
+<div class="matrix-content">
+<div class="matrix-small">YOU ARE IN</div>
+<div class="matrix-title">THE<br>MATRIX</div>
+<div class="matrix-subtitle">THERE IS NO SPOON</div>
+<div class="matrix-hint">ABDO SAAD<br>ENTER THE SYSTEM</div>
+</div>
 </div>
 
 <header>
 <div class="logo">ABDO <span>SAAD</span></div>
 <div class="subtitle">HORROR HACKER TERMINAL</div>
 <div class="status">● SYSTEM ONLINE — LEARNING MODE</div>
-
 <nav>
 <button type="button" onclick="go('home')">الرئيسية</button>
 <button type="button" onclick="go('tools')">الأدوات</button>
@@ -566,145 +130,57 @@ nav button{padding:8px}
 </header>
 
 <main>
-
 <section id="home" class="hero">
 <img src="./design.png" alt="ABDO SAAD Hacker Terminal" onerror="this.style.display='none'">
-
 <div class="subtitle">WELCOME TO THE DARK SIDE</div>
-
 <h1>HORROR <span class="red">TERMINAL</span></h1>
-
-<p>
-مرحباً بك في عالم ABDO SAAD.
-<br>
-تجربة تفاعلية بطابع الرعب السيبراني، تجمع بين البرمجة
-والتعلم والمفاجآت البصرية.
-</p>
-
+<p>مرحباً بك في عالم ABDO SAAD.<br>تجربة تفاعلية بطابع الرعب السيبراني، تجمع بين البرمجة والتعلم والمفاجآت البصرية.</p>
 <button class="btn" type="button" onclick="go('tools')">🚀 ابدأ التجربة</button>
 <button class="btn secondary" type="button" onclick="scare()">👁️ اضغط لو تجرؤ</button>
-
-<p class="small">
-تأثيرات الرعب محاكاة بصرية داخل الموقع، وليست اختراقاً حقيقياً.
-</p>
+<p class="small">تأثيرات الرعب محاكاة بصرية داخل الموقع، وليست اختراقاً حقيقياً.</p>
 </section>
 
 <section id="tools">
 <h2 class="section-title">🧰 الأدوات التعليمية</h2>
-
 <div class="grid">
-
-<article class="card" onclick="go('url-checker')">
-<div class="icon">🔗</div>
-<h3>فاحص الروابط</h3>
-<p>فحص مبدئي لبعض علامات التحذير في الروابط.</p>
-<button class="btn secondary" type="button">فتح الأداة</button>
-</article>
-
-<article class="card" onclick="go('terminal-section')">
-<div class="icon">💻</div>
-<h3>الطرفية التعليمية</h3>
-<p>تجربة أوامر بسيطة داخل محاكاة تعليمية.</p>
-<button class="btn secondary" type="button">فتح الطرفية</button>
-</article>
-
-<article class="card" onclick="go('learn')">
-<div class="icon">📚</div>
-<h3>دروس الأمن الرقمي</h3>
-<p>تعلم حماية حساباتك وبياناتك.</p>
-<button class="btn secondary" type="button">عرض الدروس</button>
-</article>
-
-<article class="card" onclick="go('quiz')">
-<div class="icon">🧠</div>
-<h3>اختبار المعلومات</h3>
-<p>اختبر معلوماتك في الأمن الرقمي والبرمجة.</p>
-<button class="btn secondary" type="button">ابدأ الاختبار</button>
-</article>
-
-<article class="card" onclick="showLesson('network')">
-<div class="icon">🌐</div>
-<h3>أساسيات الشبكات</h3>
-<p>تعرف على IP وDNS وHTTPS.</p>
-<button class="btn secondary" type="button">عرض الدرس</button>
-</article>
-
-<article class="card" onclick="showLesson('coding')">
-<div class="icon">⌨️</div>
-<h3>أساسيات البرمجة</h3>
-<p>مقدمة مبسطة في HTML وCSS وJavaScript.</p>
-<button class="btn secondary" type="button">عرض الدرس</button>
-</article>
-
+<article class="card" onclick="go('url-checker')"><div class="icon">🔗</div><h3>فاحص الروابط</h3><p>فحص مبدئي لبعض علامات التحذير في الروابط.</p><button class="btn secondary" type="button">فتح الأداة</button></article>
+<article class="card" onclick="go('terminal-section')"><div class="icon">💻</div><h3>الطرفية التعليمية</h3><p>تجربة أوامر بسيطة داخل محاكاة تعليمية.</p><button class="btn secondary" type="button">فتح الطرفية</button></article>
+<article class="card" onclick="go('learn')"><div class="icon">📚</div><h3>دروس الأمن الرقمي</h3><p>تعلم حماية حساباتك وبياناتك.</p><button class="btn secondary" type="button">عرض الدروس</button></article>
+<article class="card" onclick="go('quiz')"><div class="icon">🧠</div><h3>اختبار المعلومات</h3><p>اختبر معلوماتك في الأمن الرقمي والبرمجة.</p><button class="btn secondary" type="button">ابدأ الاختبار</button></article>
+<article class="card" onclick="showLesson('network')"><div class="icon">🌐</div><h3>أساسيات الشبكات</h3><p>تعرف على IP وDNS وHTTPS.</p><button class="btn secondary" type="button">عرض الدرس</button></article>
+<article class="card" onclick="showLesson('coding')"><div class="icon">⌨️</div><h3>أساسيات البرمجة</h3><p>مقدمة مبسطة في HTML وCSS وJavaScript.</p><button class="btn secondary" type="button">عرض الدرس</button></article>
 </div>
 </section>
 
 <section id="url-checker">
 <h2 class="section-title">🔗 فاحص الروابط</h2>
-
-<div class="panel" id="url-checker-panel">
-<p class="small">
-أدخل رابطاً لفحص بعض العلامات الظاهرة فيه.
-الفحص لا يضمن أن الموقع آمن.
-</p>
-
+<div class="panel">
+<p class="small">أدخل رابطاً لفحص بعض العلامات الظاهرة فيه. الفحص لا يضمن أن الموقع آمن.</p>
 <input id="urlInput" type="url" placeholder="https://example.com" dir="ltr" autocomplete="url">
-
 <button class="btn" type="button" onclick="checkUrl()">🔍 فحص الرابط</button>
-
 <div id="urlOutput" class="output" aria-live="polite"></div>
 </div>
 </section>
 
 <section id="terminal-section">
 <h2 class="section-title">💻 الطرفية التفاعلية</h2>
-
 <div class="panel terminal">
 <div class="terminal-title">ABDO@learning:~$</div>
-
-<p class="small">
-الأوامر المتاحة: help, about, date, tips, clear.
-هذه محاكاة تعليمية وليست طرفية أندرويد الحقيقية.
-</p>
-
+<p class="small">الأوامر المتاحة: help, about, date, tips, clear. هذه محاكاة تعليمية وليست طرفية أندرويد الحقيقية.</p>
 <input id="commandInput" type="text" placeholder="اكتب الأمر هنا..." dir="ltr" autocomplete="off">
-
 <button class="btn" type="button" onclick="runCommand()">▶ تنفيذ</button>
 <button class="btn secondary" type="button" onclick="clearTerminal()">مسح الشاشة</button>
-
-<div id="terminalOutput" class="output" aria-live="polite">ABDO SAAD TERMINAL
-اكتب help للبدء.</div>
+<div id="terminalOutput" class="output" aria-live="polite">ABDO SAAD TERMINAL<br>اكتب help للبدء.</div>
 </div>
 </section>
 
 <section id="learn">
 <h2 class="section-title">📚 مركز التعلّم</h2>
-
 <div class="panel lesson">
-
-<div class="lesson-item">
-<h3>🛡️ حماية الحسابات</h3>
-استخدم كلمة مرور قوية وفريدة لكل حساب، وفعّل التحقق بخطوتين.
-لا تشارك رموز تسجيل الدخول مع أي شخص.
-</div>
-
-<div class="lesson-item">
-<h3>🔗 أمن الروابط</h3>
-افحص اسم النطاق بعناية، ولا تدخل كلمة مرورك في صفحات غير موثوقة.
-وجود HTTPS وحده لا يضمن أن الموقع موثوق.
-</div>
-
-<div class="lesson-item">
-<h3>💻 أساسيات البرمجة</h3>
-HTML لبناء الصفحة، وCSS لتنسيقها، وJavaScript لإضافة التفاعل.
-</div>
-
-<div class="lesson-item">
-<h3>🌐 أساسيات الشبكات</h3>
-IP عنوان يستخدم في الشبكة، وDNS يساعد على تحويل أسماء النطاقات،
-وHTTPS يشفّر الاتصال بين المتصفح والموقع.
-</div>
-
+<div class="lesson-item"><h3>🛡️ حماية الحسابات</h3>استخدم كلمة مرور قوية وفريدة لكل حساب، وفعّل التحقق بخطوتين. لا تشارك رموز تسجيل الدخول مع أي شخص.</div>
+<div class="lesson-item"><h3>🔗 أمن الروابط</h3>افحص اسم النطاق بعناية، ولا تدخل كلمة مرورك في صفحات غير موثوقة. وجود HTTPS وحده لا يضمن أن الموقع موثوق.</div>
+<div class="lesson-item"><h3>💻 أساسيات البرمجة</h3>HTML لبناء الصفحة، وCSS لتنسيقها، وJavaScript لإضافة التفاعل.</div>
+<div class="lesson-item"><h3>🌐 أساسيات الشبكات</h3>IP عنوان يستخدم في الشبكة، وDNS يساعد على تحويل أسماء النطاقات، وHTTPS يشفّر الاتصال بين المتصفح والموقع.</div>
 </div>
 </section>
 
@@ -715,452 +191,136 @@ IP عنوان يستخدم في الشبكة، وDNS يساعد على تحوي�
 
 <section id="quiz">
 <h2 class="section-title">📝 اختبار المعلومات</h2>
-
 <div class="panel">
 <form id="quizForm">
-
-<div class="question">
-<strong>1. ما فائدة HTTPS الأساسية؟</strong>
-
+<div class="question"><strong>1. ما فائدة HTTPS الأساسية؟</strong>
 <label><input type="radio" name="q1" value="a"> تسريع الهاتف دائماً</label>
 <label><input type="radio" name="q1" value="b"> تشفير الاتصال بالموقع</label>
-<label><input type="radio" name="q1" value="c"> ضمان موثوقية كل المواقع</label>
-</div>
-
-<div class="question">
-<strong>2. ماذا تفعل مع رابط تسجيل دخول مشبوه؟</strong>
-
+<label><input type="radio" name="q1" value="c"> ضمان موثوقية كل المواقع</label></div>
+<div class="question"><strong>2. ماذا تفعل مع رابط تسجيل دخول مشبوه؟</strong>
 <label><input type="radio" name="q2" value="a"> أدخل كلمة المرور</label>
 <label><input type="radio" name="q2" value="b"> أرسله للجميع</label>
-<label><input type="radio" name="q2" value="c"> أتحقق من المصدر وأتجنب الرابط</label>
-</div>
-
-<div class="question">
-<strong>3. ما وظيفة CSS؟</strong>
-
+<label><input type="radio" name="q2" value="c"> أتحقق من المصدر وأتجنب الرابط</label></div>
+<div class="question"><strong>3. ما وظيفة CSS؟</strong>
 <label><input type="radio" name="q3" value="a"> تنسيق مظهر الصفحة</label>
 <label><input type="radio" name="q3" value="b"> اختراق الأجهزة</label>
-<label><input type="radio" name="q3" value="c"> إنشاء الإنترنت وحده</label>
-</div>
-
+<label><input type="radio" name="q3" value="c"> إنشاء الإنترنت وحده</label></div>
 <button type="submit" class="btn">📊 عرض النتيجة</button>
-
 </form>
-
 <div id="quizOutput" class="output" aria-live="polite"></div>
 </div>
 </section>
 
 <section id="about">
 <h2 class="section-title">👨‍💻 عن المشروع</h2>
-
 <div class="panel lesson">
-<p>
-ABDO SAAD — HORROR TERMINAL
-<br>
-مشروع تعليمي يجمع بين التصميم السينمائي والتوعية بالبرمجة والأمن الرقمي.
-</p>
-
-<p>
-المطور: <strong class="red">Abdo Saad</strong>
-</p>
-
-<p class="small">
-جميع مفاجآت الرعب تأثيرات مرئية داخل الصفحة فقط.
-الموقع لا يخترق الأجهزة ولا يصل إلى ملفات الزوار أو بياناتهم.
-</p>
+<p>ABDO SAAD — HORROR TERMINAL<br>مشروع تعليمي يجمع بين التصميم السينمائي والتوعية بالبرمجة والأمن الرقمي.</p>
+<p>المطور: <strong class="red">Abdo Saad</strong></p>
+<p class="small">جميع مفاجآت الرعب تأثيرات مرئية داخل الصفحة فقط. الموقع لا يخترق الأجهزة ولا يصل إلى ملفات الزوار أو بياناتهم.</p>
 </div>
 </section>
-
 </main>
 
-<footer>
-<span class="red">ABDO SAAD</span>
-<br>
-HORROR HACKER TERMINAL
-<br>
-منصة تعليمية للبرمجة والأمن السيبراني
-<br>
-© 2026 جميع الحقوق محفوظة
-</footer>
+<footer><span class="red">ABDO SAAD</span><br>HORROR HACKER TERMINAL<br>منصة تعليمية للبرمجة والأمن السيبراني<br>© 2026 جميع الحقوق محفوظة</footer>
 
 <script>
 "use strict";
+function go(id){const element=document.getElementById(id);if(element)element.scrollIntoView({behavior:"smooth",block:"start"});}
 
-/* التنقل داخل الصفحة */
-function go(id){
-const element=document.getElementById(id);
-if(element){
-element.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
-}
-}
-
-/* فحص مبدئي للرابط */
 function checkUrl(){
-const input=document.getElementById("urlInput");
-const output=document.getElementById("urlOutput");
-const value=input.value.trim();
-
-if(!value){
-output.textContent="اكتب رابطاً أولاً.";
-return;
-}
-
-let parsed;
-
-try{
-parsed=new URL(value);
-}catch(error){
-output.textContent="صيغة الرابط غير صحيحة.\nمثال: https://example.com";
-return;
-}
-
-if(!["http:","https:"].includes(parsed.protocol)){
-output.textContent="نوع البروتوكول غير مدعوم.";
-return;
-}
-
+const input=document.getElementById("urlInput"),output=document.getElementById("urlOutput"),value=input.value.trim();
+if(!value){output.textContent="اكتب رابطاً أولاً.";return;}
+let parsed;try{parsed=new URL(value);}catch(error){output.textContent="صيغة الرابط غير صحيحة.\nمثال: https://example.com";return;}
+if(!["http:","https:"].includes(parsed.protocol)){output.textContent="نوع البروتوكول غير مدعوم.";return;}
 const warnings=[];
-
-if(parsed.protocol!=="https:"){
-warnings.push("الرابط لا يستخدم HTTPS.");
+if(parsed.protocol!=="https:")warnings.push("الرابط لا يستخدم HTTPS.");
+if(parsed.username||parsed.password)warnings.push("الرابط يحتوي على بيانات دخول ضمن العنوان.");
+if(parsed.hostname.startsWith("xn--")||parsed.hostname.includes(".xn--"))warnings.push("اسم النطاق يحتوي على ترميز دولي يستحق المراجعة.");
+if(parsed.hostname.split(".").length>=5)warnings.push("اسم النطاق يحتوي على مستويات فرعية عديدة.");
+output.textContent="اسم المضيف: "+parsed.hostname+"\nالبروتوكول: "+parsed.protocol+"\n\n"+(warnings.length?"ملاحظات:\n- "+warnings.join("\n- "):"لم تظهر علامات التحذير البسيطة التي يفحصها النموذج.")+"\n\nهذا فحص مبدئي ولا يضمن أن الموقع آمن.";
 }
 
-if(parsed.username||parsed.password){
-warnings.push("الرابط يحتوي على بيانات دخول ضمن العنوان.");
-}
-
-if(parsed.hostname.startsWith("xn--")||parsed.hostname.includes(".xn--")){
-warnings.push("اسم النطاق يحتوي على ترميز دولي يستحق المراجعة.");
-}
-
-if(parsed.hostname.split(".").length>=5){
-warnings.push("اسم النطاق يحتوي على مستويات فرعية عديدة.");
-}
-
-output.textContent=
-"اسم المضيف: "+parsed.hostname+
-"\nالبروتوكول: "+parsed.protocol+
-"\n\n"+
-(warnings.length
-?"ملاحظات:\n- "+warnings.join("\n- ")
-:"لم تظهر علامات التحذير البسيطة التي يفحصها النموذج.")+
-"\n\nهذا الفحص مبدئي ولا يضمن أن الموقع آمن.";
-}
-
-/* أوامر الطرفية التعليمية */
 const commandInput=document.getElementById("commandInput");
-
 function runCommand(){
-const command=commandInput.value.trim().toLowerCase();
-const output=document.getElementById("terminalOutput");
-
-const commands={
-help:"الأوامر المتاحة:\nhelp — عرض الأوامر\nabout — معلومات المنصة\ndate — الوقت المحلي\ntips — نصائح الحماية\nclear — مسح الشاشة",
-
-about:"ABDO SAAD Horror Hacker Terminal\nمنصة تعليمية للبرمجة والأمن السيبراني.",
-
-tips:"1. استخدم كلمات مرور فريدة.\n2. فعّل التحقق بخطوتين.\n3. تجنب المرفقات المشبوهة.\n4. حدّث برامجك باستمرار.",
-
-date:"الوقت المحلي:\n"+new Date().toLocaleString()
-};
-
-if(command==="clear"){
-output.textContent="";
-}else if(commands[command]){
-output.textContent=commands[command];
-}else if(command){
-output.textContent="أمر غير معروف. اكتب help لعرض الأوامر.";
-}else{
-output.textContent="اكتب أمراً أولاً.";
-}
-
+const command=commandInput.value.trim().toLowerCase(),output=document.getElementById("terminalOutput");
+const commands={help:"الأوامر المتاحة:\nhelp — عرض الأوامر\nabout — معلومات المنصة\ndate — الوقت المحلي\ntips — نصائح الحماية\nclear — مسح الشاشة",about:"ABDO SAAD Horror Hacker Terminal\nمنصة تعليمية للبرمجة والأمن السيبراني.",tips:"1. استخدم كلمات مرور فريدة.\n2. فعّل التحقق بخطوتين.\n3. تجنب المرفقات المشبوهة.\n4. حدّث برامجك باستمرار.",date:"الوقت المحلي:\n"+new Date().toLocaleString()};
+if(command==="clear")output.textContent="";else if(commands[command])output.textContent=commands[command];else if(command)output.textContent="أمر غير معروف. اكتب help لعرض الأوامر.";else output.textContent="اكتب أمراً أولاً.";
 commandInput.value="";
 }
+function clearTerminal(){document.getElementById("terminalOutput").textContent="";commandInput.value="";}
+commandInput.addEventListener("keydown",event=>{if(event.key==="Enter")runCommand();});
 
-function clearTerminal(){
-document.getElementById("terminalOutput").textContent="";
-commandInput.value="";
-}
-
-commandInput.addEventListener("keydown",function(event){
-if(event.key==="Enter"){
-runCommand();
-}
-});
-
-/* الدروس الإضافية */
 function showLesson(type){
-const section=document.getElementById("lessonOutput");
-const text=document.getElementById("lessonText");
-
-const lessons={
-network:
-"<h3>أساسيات الشبكات</h3>"+
-"<p><b>IP:</b> عنوان يستخدم لتحديد واجهة اتصال بالشبكة.</p>"+
-"<p><b>DNS:</b> يساعد في تحويل اسم النطاق إلى عنوان IP.</p>"+
-"<p><b>HTTPS:</b> يشفّر الاتصال بين المتصفح والموقع.</p>",
-
-coding:
-"<h3>مقدمة في تطوير الويب</h3>"+
-"<p><b>HTML:</b> هيكل الصفحة.</p>"+
-"<p><b>CSS:</b> المظهر والألوان والتخطيط.</p>"+
-"<p><b>JavaScript:</b> التفاعل والأحداث.</p>"
-};
-
-text.innerHTML=lessons[type]||"لا يوجد درس متاح.";
-section.classList.remove("hidden");
-
-section.scrollIntoView({
-behavior:"smooth",
-block:"start"
-});
+const section=document.getElementById("lessonOutput"),text=document.getElementById("lessonText");
+const lessons={network:"<h3>أساسيات الشبكات</h3><p><b>IP:</b> عنوان يستخدم لتحديد واجهة اتصال بالشبكة.</p><p><b>DNS:</b> يساعد في تحويل اسم النطاق إلى عنوان IP.</p><p><b>HTTPS:</b> يشفّر الاتصال بين المتصفح والموقع.</p>",coding:"<h3>مقدمة في تطوير الويب</h3><p><b>HTML:</b> هيكل الصفحة.</p><p><b>CSS:</b> المظهر والألوان والتخطيط.</p><p><b>JavaScript:</b> التفاعل والأحداث.</p>"};
+text.innerHTML=lessons[type]||"لا يوجد درس متاح.";section.classList.remove("hidden");section.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-/* اختبار المعلومات */
-document.getElementById("quizForm").addEventListener("submit",function(event){
-event.preventDefault();
-
-const answers={
-q1:"b",
-q2:"c",
-q3:"a"
-};
-
-let score=0;
-
-for(const [question,correct] of Object.entries(answers)){
-const selected=document.querySelector('input[name="'+question+'"]:checked');
-
-if(selected&&selected.value===correct){
-score++;
-}
-}
-
-document.getElementById("quizOutput").textContent=
-"نتيجتك: "+score+" من 3.\n"+
-(score===3
-?"ممتاز! كل إجاباتك صحيحة."
-:"راجع الدروس وحاول مرة أخرى.");
+document.getElementById("quizForm").addEventListener("submit",event=>{
+event.preventDefault();const answers={q1:"b",q2:"c",q3:"a"};let score=0;
+for(const [question,correct] of Object.entries(answers)){const selected=document.querySelector('input[name="'+question+'"]:checked');if(selected&&selected.value===correct)score++;}
+document.getElementById("quizOutput").textContent="نتيجتك: "+score+" من 3.\n"+(score===3?"ممتاز! كل إجاباتك صحيحة.":"راجع الدروس وحاول مرة أخرى.");
 });
 
-/* قطرات حمراء متحركة */
 (function(){
-if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){
-return;
-}
-
-for(let i=0;i<14;i++){
-const particle=document.createElement("div");
-
-particle.className="red-particle";
-particle.style.left=Math.random()*100+"vw";
-particle.style.animationDuration=(5+Math.random()*8)+"s";
-particle.style.animationDelay=(-Math.random()*10)+"s";
-
-document.body.appendChild(particle);
-}
+if(window.matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+for(let i=0;i<14;i++){const particle=document.createElement("div");particle.className="red-particle";particle.style.left=Math.random()*100+"vw";particle.style.animationDuration=(5+Math.random()*8)+"s";particle.style.animationDelay=(-Math.random()*10)+"s";document.body.appendChild(particle);}
 })();
 
-/* مفاجآت الرعب السينمائية */
 (function(){
-
 const reduceMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-const flash=document.getElementById("horrorFlash");
-const toast=document.getElementById("horrorToast");
-const icon=document.getElementById("scareIcon");
-const title=document.getElementById("scareTitle");
-const message=document.getElementById("scareMessage");
-const scareToggle=document.getElementById("scareToggle");
-const soundToggle=document.getElementById("soundToggle");
-
-let enabled=true;
-let soundEnabled=false;
-let timer=null;
-let audioContext=null;
-
+const flash=document.getElementById("horrorFlash"),toast=document.getElementById("horrorToast"),icon=document.getElementById("scareIcon"),title=document.getElementById("scareTitle"),message=document.getElementById("scareMessage"),scareToggle=document.getElementById("scareToggle"),soundToggle=document.getElementById("soundToggle");
+let enabled=true,soundEnabled=false,timer=null,audioContext=null;
 const scenes=[
-{
-icon:"💀",
-title:"SYSTEM WARNING",
-message:"ظهرت إشارة غامضة... إنها مجرد خدعة بصرية داخل الموقع!"
-},
-{
-icon:"👁️",
-title:"WHO IS WATCHING?",
-message:"العين ظهرت للحظة ثم اختفت... 👁️"
-},
-{
-icon:"🕷️",
-title:"UNKNOWN SIGNAL",
-message:"تم رصد إشارة خيالية في شاشة التجربة."
-},
-{
-icon:"☠️",
-title:"DARK MODE",
-message:"أهلاً بك في الجانب المظلم من التجربة."
-},
-{
-icon:"⚠️",
-title:"SYSTEM ALERT",
-message:"تأثير جديد ظهر! تابع بحذر."
-},
-{
-icon:"👻",
-title:"GHOST SIGNAL",
-message:"لا تقلق، كل ما تراه مجرد رسوم داخل الصفحة."
-}
+{icon:"💀",title:"SYSTEM WARNING",message:"ظهرت إشارة غامضة... إنها مجرد خدعة بصرية داخل الموقع!"},
+{icon:"👁️",title:"WHO IS WATCHING?",message:"العين ظهرت للحظة ثم اختفت... 👁️"},
+{icon:"🕷️",title:"UNKNOWN SIGNAL",message:"تم رصد إشارة خيالية في شاشة التجربة."},
+{icon:"☠️",title:"DARK MODE",message:"أهلاً بك في الجانب المظلم من التجربة."},
+{icon:"⚠️",title:"SYSTEM ALERT",message:"تأثير جديد ظهر! تابع بحذر."},
+{icon:"👻",title:"GHOST SIGNAL",message:"لا تقلق، كل ما تراه مجرد رسوم داخل الصفحة."}
 ];
-
-/* الصوت اختياري ويظل مغلقاً حتى يضغط المستخدم */
 function tone(){
 if(!soundEnabled)return;
-
-try{
-const AC=window.AudioContext||window.webkitAudioContext;
-
-if(!AC)return;
-
-if(!audioContext){
-audioContext=new AC();
+try{const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return;if(!audioContext)audioContext=new AC();if(audioContext.state==="suspended")audioContext.resume();const oscillator=audioContext.createOscillator(),gain=audioContext.createGain(),now=audioContext.currentTime;oscillator.type="sawtooth";oscillator.frequency.setValueAtTime(180,now);oscillator.frequency.exponentialRampToValueAtTime(65,now+.22);gain.gain.setValueAtTime(.0001,now);gain.gain.exponentialRampToValueAtTime(.045,now+.025);gain.gain.exponentialRampToValueAtTime(.0001,now+.28);oscillator.connect(gain);gain.connect(audioContext.destination);oscillator.start();oscillator.stop(now+.3);}catch(error){}
 }
-
-if(audioContext.state==="suspended"){
-audioContext.resume();
-}
-
-const oscillator=audioContext.createOscillator();
-const gain=audioContext.createGain();
-const now=audioContext.currentTime;
-
-oscillator.type="sawtooth";
-
-oscillator.frequency.setValueAtTime(180,now);
-oscillator.frequency.exponentialRampToValueAtTime(65,now+.22);
-
-gain.gain.setValueAtTime(.0001,now);
-gain.gain.exponentialRampToValueAtTime(.045,now+.025);
-gain.gain.exponentialRampToValueAtTime(.0001,now+.28);
-
-oscillator.connect(gain);
-gain.connect(audioContext.destination);
-
-oscillator.start();
-oscillator.stop(now+.3);
-
-}catch(error){}
-}
-
-/* رمز مفاجئ يظهر ثم يختفي */
-function pop(emoji){
-if(reduceMotion)return;
-
-const element=document.createElement("div");
-
-element.className="scare-emoji";
-element.textContent=emoji;
-
-element.style.left=(18+Math.random()*64)+"vw";
-element.style.top=(25+Math.random()*50)+"vh";
-
-document.body.appendChild(element);
-
-setTimeout(function(){
-element.remove();
-},1300);
-}
-
-/* تشغيل المفاجأة */
+function pop(emoji){if(reduceMotion)return;const element=document.createElement("div");element.className="scare-emoji";element.textContent=emoji;element.style.left=(18+Math.random()*64)+"vw";element.style.top=(25+Math.random()*50)+"vh";document.body.appendChild(element);setTimeout(()=>element.remove(),1300);}
 function scare(){
-if(!enabled)return;
-
-const scene=scenes[Math.floor(Math.random()*scenes.length)];
-
-icon.textContent=scene.icon;
-title.textContent=scene.title;
-message.textContent=scene.message;
-
-toast.classList.add("show");
-
-if(!reduceMotion){
-flash.classList.add("active");
-document.body.classList.add("scare-glitch");
-
-const emojis=["💀","👁️","🕷️","👻","☠️"];
-
-pop(emojis[Math.floor(Math.random()*emojis.length)]);
+if(!enabled)return;const scene=scenes[Math.floor(Math.random()*scenes.length)];icon.textContent=scene.icon;title.textContent=scene.title;message.textContent=scene.message;toast.classList.add("show");
+if(!reduceMotion){flash.classList.add("active");document.body.classList.add("scare-glitch");const emojis=["💀","👁️","🕷️","👻","☠️"];pop(emojis[Math.floor(Math.random()*emojis.length)]);}
+tone();clearTimeout(timer);timer=setTimeout(()=>{toast.classList.remove("show");flash.classList.remove("active");document.body.classList.remove("scare-glitch");},1500);
 }
+window.scare=scare;
+scareToggle.addEventListener("click",event=>{event.stopPropagation();enabled=!enabled;scareToggle.textContent=enabled?"👁️ الرعب: تشغيل":"👁️ الرعب: إيقاف";if(!enabled){toast.classList.remove("show");flash.classList.remove("active");document.body.classList.remove("scare-glitch");clearTimeout(timer);}else scare();});
+soundToggle.addEventListener("click",event=>{event.stopPropagation();soundEnabled=!soundEnabled;soundToggle.textContent=soundEnabled?"🔊 الصوت: تشغيل":"🔇 الصوت: مغلق";soundToggle.setAttribute("aria-pressed",String(soundEnabled));if(soundEnabled)tone();});
+document.addEventListener("click",event=>{if(event.target.closest("#scareControls")||!enabled)return;if(event.target.closest("button")||event.target.closest(".card")||event.target===document.body||event.target===document.documentElement)scare();});
+})();
 
-tone();
-
-clearTimeout(timer);
-
-timer=setTimeout(function(){
-toast.classList.remove("show");
-flash.classList.remove("active");
-document.body.classList.remove("scare-glitch");
-},1500);
+/* Matrix: appears immediately for 30 seconds, then every 60 seconds. */
+(function(){
+const intro=document.getElementById("matrixIntro"),canvas=document.getElementById("matrixCanvas"),ctx=canvas.getContext("2d");
+if(!intro||!canvas||!ctx)return;
+let width=0,height=0,columns=0,drops=[],animationFrame=null,showTimer=null,cycleTimer=null,active=false;
+const characters="アカサタナハマヤラワ012345789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function resizeCanvas(){
+const dpr=Math.min(window.devicePixelRatio||1,2);width=window.innerWidth;height=window.innerHeight;
+canvas.width=Math.floor(width*dpr);canvas.height=Math.floor(height*dpr);canvas.style.width=width+"px";canvas.style.height=height+"px";ctx.setTransform(dpr,0,0,dpr,0,0);
+const fontSize=width<500?16:20;columns=Math.ceil(width/fontSize);drops=Array.from({length:columns},()=>Math.random()*-(height/fontSize));
 }
-
-/* زر تشغيل وإيقاف الرعب */
-scareToggle.addEventListener("click",function(event){
-event.stopPropagation();
-
-enabled=!enabled;
-
-scareToggle.textContent=
-enabled?"👁️ الرعب: تشغيل":"👁️ الرعب: إيقاف";
-
-if(!enabled){
-toast.classList.remove("show");
-flash.classList.remove("active");
-document.body.classList.remove("scare-glitch");
-
-clearTimeout(timer);
-}else{
-scare();
+function drawMatrix(){
+if(!active)return;ctx.fillStyle="rgba(0,0,0,.09)";ctx.fillRect(0,0,width,height);const fontSize=width<500?16:20;ctx.font=fontSize+"px monospace";
+for(let i=0;i<drops.length;i++){const character=characters[Math.floor(Math.random()*characters.length)];ctx.fillStyle=Math.random()>.94?"#d5ffd5":"#00ff41";ctx.fillText(character,i*fontSize,drops[i]*fontSize);if(drops[i]*fontSize>height&&Math.random()>.975)drops[i]=0;drops[i]+=.45+Math.random()*.55;}
+animationFrame=requestAnimationFrame(drawMatrix);
 }
-});
-
-/* زر الصوت */
-soundToggle.addEventListener("click",function(event){
-event.stopPropagation();
-
-soundEnabled=!soundEnabled;
-
-soundToggle.textContent=
-soundEnabled?"🔊 الصوت: تشغيل":"🔇 الصوت: مغلق";
-
-soundToggle.setAttribute("aria-pressed",String(soundEnabled));
-
-if(soundEnabled){
-tone();
+function showMatrix(){
+if(active)return;active=true;resizeCanvas();intro.style.display="block";requestAnimationFrame(()=>intro.classList.add("matrix-visible"));drawMatrix();showTimer=setTimeout(hideMatrix,30000);
 }
-});
-
-/* المفاجآت عند الضغط على الأزرار والبطاقات */
-document.addEventListener("click",function(event){
-
-if(event.target.closest("#scareControls")||!enabled){
-return;
+function hideMatrix(){
+active=false;intro.classList.remove("matrix-visible");if(animationFrame!==null){cancelAnimationFrame(animationFrame);animationFrame=null;}clearTimeout(showTimer);setTimeout(()=>{if(!active)intro.style.display="none";},650);
 }
-
-if(
-event.target.closest("button")||
-event.target.closest(".card")||
-event.target===document.body||
-event.target===document.documentElement
-){
-scare();
-}
-
-});
-
+window.addEventListener("resize",()=>{if(active)resizeCanvas();});
+showMatrix();
+cycleTimer=setInterval(showMatrix,60000);
 })();
 </script>
 </body>
-  </html>
+</html>
